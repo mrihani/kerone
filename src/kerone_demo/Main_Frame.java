@@ -108,7 +108,6 @@ public class Main_Frame extends javax.swing.JFrame {
                 frame.setLocation(x, y);
                 frame.setVisible(true);
                 
-                
             }
         });
     }
