@@ -79,6 +79,13 @@ public class Receiver extends Thread {
                             String vm_id = s[5];
                             Allocate_PL(pr_id,acc, state,vm_id);
                         }
+                        else if (s[1].equals("ms")) {
+                            String pr_id = s[2];
+                            String acc = s[3];
+                            String state = s[4];
+                            String vm_id = s[5];
+                            Allocate_PL(pr_id,acc, state,vm_id);
+                        }
                         
                     }
                 }
