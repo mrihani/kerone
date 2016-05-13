@@ -5,6 +5,7 @@
  */
 package kerone_demo;
 
+import Communication.Sender;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -14,12 +15,14 @@ import java.awt.Toolkit;
  */
 public class Main_Frame extends javax.swing.JFrame {
 
+    Sender sender;
+
     /**
      * Creates new form Main_Frame
      */
     public Main_Frame() {
         initComponents();
-        
+        sender = new Sender();
     }
 
     /**
@@ -34,11 +37,12 @@ public class Main_Frame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,18 +52,14 @@ public class Main_Frame extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Send Command");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Run", "Stop", "VM Scheduling Enable", "VM Scheduling Disable", "Task Scheduling Enable", "Task Scheduling Disable", "PL Allocation Enable", "PL Allocation Disable", "Slow mode Enable", "Slow mode Disable" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -68,9 +68,9 @@ public class Main_Frame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addComponent(jComboBox1, 0, 426, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)))
                 .addContainerGap())
@@ -82,8 +82,8 @@ public class Main_Frame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(jComboBox1))
                 .addContainerGap())
         );
 
@@ -91,6 +91,17 @@ public class Main_Frame extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
+        jMenu2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jMenuItem1.setText("Clear Text Field");
+        jMenuItem1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -109,17 +120,56 @@ public class Main_Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        String com = jTextField1.getText();
-        jTextArea1.append(com+"\n");
-        jTextField1.setText("");
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String com = jTextField1.getText();
-        jTextArea1.append(com+"\n");
-        jTextField1.setText("");
+        int selectedindex = jComboBox1.getSelectedIndex();
+        switch (selectedindex) {
+            case 0:
+                sender.RunStop(0);
+                jTextArea1.append("Run Command Sent\n");
+                break;
+            case 1:
+                sender.RunStop(1);
+                jTextArea1.append("Stop Command Sent\n");
+                break;
+            case 2:
+                sender.SendCommand("VM_SCH_EN");
+                jTextArea1.append("VM Schedule Enable Command Sent\n");
+                break;
+            case 3:
+                sender.SendCommand("VM_SCH_DIS");
+                jTextArea1.append("VM Schedule Disable Command Sent\n");
+                break;
+            case 4:
+                sender.SendCommand("TA_SCH_EN");
+                jTextArea1.append("Task Schedule Enable Command Sent\n");
+                break;
+            case 5:
+                sender.SendCommand("TA_SCH_DIS");
+                jTextArea1.append("Task Schedule Disable Command Sent\n");
+                break;
+            case 6:
+                sender.SendCommand("PL_ALL_EN");
+                jTextArea1.append("PL Allocate Enable Command Sent\n");
+                break;
+            case 7:
+                sender.SendCommand("PL_ALL_DIS");
+                jTextArea1.append("PL Allocate Disable Command Sent\n");
+                break;
+            case 8:
+                sender.SendCommand("SLOW_EN");
+                jTextArea1.append("Slow Mode Enable Command Sent\n");
+                break;
+            case 9:
+                sender.SendCommand("SLOW_DIS");
+                 jTextArea1.append("Slow Mode Disble Command Sent\n");
+                break;
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       jTextArea1.setText("");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,19 +207,21 @@ public class Main_Frame extends javax.swing.JFrame {
                 int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
                 frame.setLocation(x, y);
                 frame.setVisible(true);
-           
+              
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,8 +11,8 @@ package Communication;
  */
 public class Sender {
 
-    public String StartStop(int startstop) {
-        if (startstop == 0) {
+    public String RunStop(int runstop) {
+        if (runstop == 0) {
             return "CMD r END";
         } else {
             return "CMD s END";
