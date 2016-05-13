@@ -41,7 +41,7 @@ public class Receiver extends Thread {
                         for (int i = 3; i < (VM_count * 2); i++) {
                             if ((i % 2) == 0) {
                                 String type = s[i];
-                                String vm="";
+                                String vm = "";
                                 switch (type) {
                                     case VM_GPOS:
                                         vm = "GPOS";
@@ -54,13 +54,32 @@ public class Receiver extends Thread {
                                         break;
 
                                 }
-                                 VM_TYPE_LL.add(vm);
+                                VM_TYPE_LL.add(vm);
                             } else {
                                 VM_PRIO_LL.add(s[i]);
                             }
                         }
 
                         intialize_VM(VM_count, VM_TYPE_LL, VM_PRIO_LL);
+                    } else if (s[0].equals("INFO")) {
+                        if (s[1].equals("vm")) {
+                            String vm_id = s[2];
+                            String sch_time = s[3];
+                            Schedule_VM(vm_id, sch_time);
+                        } else if (s[1].equals("tk")) {
+                            String vm_id = s[2];
+                            String task_id = s[3];
+                            String sch_time = s[4];
+                            Schedule_Task(vm_id,task_id, sch_time);
+                        }
+                        else if (s[1].equals("pl")) {
+                            String pr_id = s[2];
+                            String acc = s[3];
+                            String state = s[4];
+                            String vm_id = s[5];
+                            Allocate_PL(pr_id,acc, state,vm_id);
+                        }
+                        
                     }
                 }
             }
@@ -69,6 +88,18 @@ public class Receiver extends Thread {
     }
 
     private void intialize_VM(int VM_count, LinkedList<String> VM_TYPE_LL, LinkedList<String> VM_PRIO_LL) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void Schedule_VM(String vm_id, String sch_time) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void Schedule_Task(String vm_id, String task_id, String sch_time) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void Allocate_PL(String pr_id, String acc, String state, String vm_id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

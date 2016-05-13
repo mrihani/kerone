@@ -107,7 +107,7 @@ public class Main_Frame extends javax.swing.JFrame {
                 int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
                 frame.setLocation(x, y);
                 frame.setVisible(true);
-                
+           
             }
         });
     }
