@@ -6,6 +6,7 @@ package Communication;
 
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import kerone_demo.Main_Frame;
 
 /**
  *
@@ -80,7 +81,9 @@ public class Receiver extends Thread {
                             Allocate_PL(pr_id,acc, state,vm_id);
                         }
                         else if (s[1].equals("ms")) {
-                           //split on < and sent message
+                          String [] splited = command.split("<");
+                          String message = splited[1];
+                          PL_message(message);
                         }
                         
                     }
@@ -91,19 +94,23 @@ public class Receiver extends Thread {
     }
 
     private void intialize_VM(int VM_count, LinkedList<String> VM_TYPE_LL, LinkedList<String> VM_PRIO_LL) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Main_Frame.jTextArea1.append("intialize VM command Recieved \n");
     }
 
     private void Schedule_VM(String vm_id, String sch_time) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Main_Frame.jTextArea1.append("Schedule VM command Recieved \n");
     }
 
     private void Schedule_Task(String vm_id, String task_id, String sch_time) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Main_Frame.jTextArea1.append("Schedule Task command Recieved \n");
     }
 
     private void Allocate_PL(String pr_id, String acc, String state, String vm_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Main_Frame.jTextArea1.append("Allocate PL command Received \n");
+    }
+
+    private void PL_message(String message) {
+      Main_Frame.jTextArea1.append("PL INfO Message Received \n");
     }
 
 }

@@ -6,8 +6,10 @@
 package kerone_demo;
 
 import Communication.Sender;
+import Communication.SerialCommunicator;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -207,7 +209,9 @@ public class Main_Frame extends javax.swing.JFrame {
                 int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
                 frame.setLocation(x, y);
                 frame.setVisible(true);
-              
+            //  String serialcom=JOptionPane.showInputDialog(null,"Enter the Serial port connected to the GSM modem. ex \"COM6");
+           //   SerialCommunicator sc = new SerialCommunicator(serialcom);
+            //   sc.connect();
 
             }
         });
@@ -222,6 +226,6 @@ public class Main_Frame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public static javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

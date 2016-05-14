@@ -14,7 +14,7 @@ import java.util.*;
 public class SerialCommunicator implements SerialPortEventListener {
 
 	private String comPort;
-	private int baudRate = 57600;
+	private int baudRate = 115200 ;
 	private int dataBits = SerialPort.DATABITS_8;
 	private int flowControl = SerialPort.FLOWCONTROL_NONE;
 	private int parity = SerialPort.PARITY_NONE;
@@ -36,7 +36,7 @@ public class SerialCommunicator implements SerialPortEventListener {
 	public static long MEDIUM_WAIT = 100;
 	public static long LONG_WAIT = 1000;
 	
-	private final char END_OF_TX = '\n';
+	private final char END_OF_TX = '\n'; // byte 10
 	
 	private byte[] readBuffer = new byte[64];
 	private int bufferIndex = 0;
