@@ -6,6 +6,8 @@
 package kerone_demo;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.Calendar;
 import java.util.Date;
 import static kerone_demo.Gantt_Chart.chart;
@@ -24,12 +26,12 @@ import org.jfree.data.time.SimpleTimePeriod;
  *
  * @author Fadel
  */
-public class Test_Frame extends javax.swing.JFrame {
+public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
 
     /**
      * Creates new form Test_Frame
      */
-    public Test_Frame() {
+    public PS_Gantt_Chart_Frame() {
 //          IntervalCategoryDataset dataset = createDataset3();
 //          JFreeChart chart = createChart(dataset);
 //
@@ -50,77 +52,39 @@ public class Test_Frame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 303, Short.MAX_VALUE)
-        );
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 127, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jPanel3.setBackground(new java.awt.Color(255, 0, 0));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 433, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 74, Short.MAX_VALUE)
-        );
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        jPanel1.setLayout(new java.awt.BorderLayout());
 
         final IntervalCategoryDataset dataset = createDataset3();
         chart = createChart(dataset);
@@ -128,8 +92,22 @@ public class Test_Frame extends javax.swing.JFrame {
         // add the chart to a panel...
         ChartPanel chartPanel = new ChartPanel(chart);
 
-        jPanel1.add(chartPanel,BorderLayout.CENTER);
+        jPanel1.add(chartPanel);
         jPanel1.validate();
+        chart = createChart(dataset);
+
+        // add the chart to a panel...
+        ChartPanel chartPanel2 = new ChartPanel(chart);
+
+        jPanel3.add(chartPanel2);
+        jPanel3.validate();
+        chart = createChart(dataset);
+
+        // add the chart to a panel...
+        ChartPanel chartPanel3 = new ChartPanel(chart);
+
+        jPanel2.add(chartPanel3);
+        jPanel2.validate();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,20 +129,26 @@ public class Test_Frame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Test_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Test_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Test_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Test_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Test_Frame().setVisible(true);
+                 Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+                PS_Gantt_Chart_Frame frame =  new PS_Gantt_Chart_Frame();
+                 int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+                int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+                frame.setLocation(x, y);
+                frame.setVisible(true);
             }
         });
     }
