@@ -26,12 +26,12 @@ import org.jfree.data.time.SimpleTimePeriod;
  *
  * @author Fadel
  */
-public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
+public class PS_Gantt_Chart_Frame_BACK extends javax.swing.JFrame {
 
     /**
      * Creates new form Test_Frame
      */
-    public PS_Gantt_Chart_Frame() {
+    public PS_Gantt_Chart_Frame_BACK() {
 //          IntervalCategoryDataset dataset = createDataset3();
 //          JFreeChart chart = createChart(dataset);
 //
@@ -228,7 +228,7 @@ public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel17))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -328,7 +328,7 @@ public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
@@ -379,14 +379,16 @@ public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame_BACK.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame_BACK.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame_BACK.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame_BACK.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -394,7 +396,7 @@ public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                  Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-                PS_Gantt_Chart_Frame frame =  new PS_Gantt_Chart_Frame();
+                PS_Gantt_Chart_Frame_BACK frame =  new PS_Gantt_Chart_Frame_BACK();
                  int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
                 int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
                 frame.setLocation(x, y);
