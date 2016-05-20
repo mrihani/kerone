@@ -5,17 +5,17 @@
  */
 package kerone_demo;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import static kerone_demo.Gantt_Chart.chart;
-import static kerone_demo.Gantt_Chart.createDataset3;
-import static kerone_demo.Gantt_Chart.s1;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.data.category.IntervalCategoryDataset;
 import org.jfree.data.gantt.Task;
 import org.jfree.data.gantt.TaskSeries;
@@ -26,12 +26,15 @@ import org.jfree.data.time.SimpleTimePeriod;
  *
  * @author Fadel
  */
-public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
-
+public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
+   static DateAxis axis1;
+   static DateAxis axis2;
+   static DateAxis axis3;
+   static ChartPanel    chartPanel3 ;
     /**
      * Creates new form Test_Frame
      */
-    public PS_Gantt_Chart_Frame() {
+    public PS_Gantt_Chart_Tasks() {
 //          IntervalCategoryDataset dataset = createDataset3();
 //          JFreeChart chart = createChart(dataset);
 //
@@ -82,15 +85,31 @@ public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Virtual Machine State");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                jPanel1MouseWheelMoved(evt);
+            }
+        });
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                jPanel3MouseWheelMoved(evt);
+            }
+        });
         jPanel3.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                jPanel2MouseWheelMoved(evt);
+            }
+        });
         jPanel2.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -341,67 +360,115 @@ public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
 
         // add the chart to a panel...
         ChartPanel chartPanel = new ChartPanel(chart);
+        CategoryPlot plot = chart.getCategoryPlot();
+        axis1 = (DateAxis) plot.getRangeAxis();
 
+        //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
+        axis1.setDateFormatOverride(new SimpleDateFormat("S"));
         jPanel1.add(chartPanel);
         jPanel1.validate();
         chart = createChart(dataset);
 
         // add the chart to a panel...
-        ChartPanel chartPanel2 = new ChartPanel(chart);
+        ChartPanel     chartPanel2 = new ChartPanel(chart);
+        plot = chart.getCategoryPlot();
+        axis3 = (DateAxis) plot.getRangeAxis();
 
+        //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
+        axis3.setDateFormatOverride(new SimpleDateFormat("S"));
         jPanel3.add(chartPanel2);
         jPanel3.validate();
         chart = createChart(dataset);
 
         // add the chart to a panel...
-        ChartPanel chartPanel3 = new ChartPanel(chart);
+        chartPanel3 = new ChartPanel(chart);
+        plot = chart.getCategoryPlot();
+        axis2 = (DateAxis) plot.getRangeAxis();
 
+        //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 100));
+        axis2.setDateFormatOverride(new SimpleDateFormat("S"));
         jPanel2.add(chartPanel3);
         jPanel2.validate();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
+       evt.getWheelRotation();
+         if (evt.getWheelRotation()==1)
+            axis2.setRange(axis2.getRange().getLowerBound()-50, axis2.getRange().getUpperBound()+50);
+         else
+             if (evt.getWheelRotation()==-1)
+             {
+               axis2.setRange(axis2.getRange().getLowerBound()+50, axis2.getRange().getUpperBound()-50);  
+             }
+    }//GEN-LAST:event_jPanel2MouseWheelMoved
+
+    private void jPanel3MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel3MouseWheelMoved
+        evt.getWheelRotation();
+         if (evt.getWheelRotation()==1)
+            axis3.setRange(axis3.getRange().getLowerBound()-50, axis3.getRange().getUpperBound()+50);
+         else
+             if (evt.getWheelRotation()==-1)
+             {
+               axis3.setRange(axis3.getRange().getLowerBound()+50, axis3.getRange().getUpperBound()-50);  
+             }
+    }//GEN-LAST:event_jPanel3MouseWheelMoved
+
+    private void jPanel1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel1MouseWheelMoved
+       evt.getWheelRotation();
+         if (evt.getWheelRotation()==1)
+            axis1.setRange(axis1.getRange().getLowerBound()-50, axis1.getRange().getUpperBound()+50);
+         else
+             if (evt.getWheelRotation()==-1)
+             {
+               axis1.setRange(axis1.getRange().getLowerBound()+50, axis1.getRange().getUpperBound()-50);  
+             }
+    }//GEN-LAST:event_jPanel1MouseWheelMoved
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                 Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-                PS_Gantt_Chart_Frame frame =  new PS_Gantt_Chart_Frame();
-                 int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-                int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-                frame.setLocation(x, y);
-                frame.setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Windows".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Tasks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Tasks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Tasks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(PS_Gantt_Chart_Tasks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                 Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+//                PS_Gantt_Chart_Tasks frame =  new PS_Gantt_Chart_Tasks();
+//                 int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+//                int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+//                frame.setLocation(x, y);
+//                frame.setVisible(true);
+//              // axis.setRange(99,650);
+//            }
+//        });
+//    }
  public static JFreeChart createChart(final IntervalCategoryDataset dataset) {
         final JFreeChart chart = ChartFactory.createGanttChart(
                 "VM Scheduling", // chart title
@@ -420,27 +487,48 @@ public class PS_Gantt_Chart_Frame extends javax.swing.JFrame {
 
      
       TaskSeries  s1 = new TaskSeries("Scheduled");
-        Task task1 = new Task("VM1",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 30),
-                        date(10, Calendar.MAY, 2016, 15, 26, 31)));
+//        Task task1 = new Task("VM1",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 30),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 31)));
+//        Task task2 = new Task("VM2",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 31),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 32)));
+//        Task task3 = new Task("VM3",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 32),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 33)));
+//        Task task4 = new Task("VM4",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 33),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 34)));
+//        Task task1_2 = new Task("VM1",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 34),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 35)));
+//         Task task2_2 = new Task("VM2",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 36),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 37)));
+//          Task task3_2 = new Task("VM3",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 35),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 36)));
+       Task task1 = new Task("VM1",
+                new SimpleTimePeriod(110,
+                        120));
         Task task2 = new Task("VM2",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 31),
-                        date(10, Calendar.MAY, 2016, 15, 26, 32)));
+                new SimpleTimePeriod(120,
+                        230));
         Task task3 = new Task("VM3",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 32),
-                        date(10, Calendar.MAY, 2016, 15, 26, 33)));
+                new SimpleTimePeriod(230,
+                        340));
         Task task4 = new Task("VM4",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 33),
-                        date(10, Calendar.MAY, 2016, 15, 26, 34)));
+                new SimpleTimePeriod(440,
+                        550));
         Task task1_2 = new Task("VM1",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 34),
-                        date(10, Calendar.MAY, 2016, 15, 26, 35)));
+                new SimpleTimePeriod(550,
+                        660));
          Task task2_2 = new Task("VM2",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 36),
-                        date(10, Calendar.MAY, 2016, 15, 26, 37)));
+                new SimpleTimePeriod(760,
+                        770));
           Task task3_2 = new Task("VM3",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 35),
-                        date(10, Calendar.MAY, 2016, 15, 26, 36)));
+                new SimpleTimePeriod(770,
+                        780));
         
         task1_2.addSubtask(task1_2);
         task1_2.addSubtask(task1);

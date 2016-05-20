@@ -209,6 +209,16 @@ public class Main_Frame extends javax.swing.JFrame {
                 int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
                 frame.setLocation(x, y);
                 frame.setVisible(true);
+                PL_Frame plframe = new PL_Frame();
+                plframe.setLocation(x, y);
+                plframe.setVisible(true);
+                PS_Gantt_Chart_VM ps_gantt_chart_VM = new PS_Gantt_Chart_VM();
+                ps_gantt_chart_VM.setLocation(x, y);
+                ps_gantt_chart_VM.setVisible(true);
+                PS_Gantt_Chart_Tasks ps_gantt_chart_tasks = new PS_Gantt_Chart_Tasks();
+                ps_gantt_chart_tasks.setLocation(x, y);
+                ps_gantt_chart_tasks.setVisible(true);
+                
             //  String serialcom=JOptionPane.showInputDialog(null,"Enter the Serial port connected to the GSM modem. ex \"COM6");
            //   SerialCommunicator sc = new SerialCommunicator(serialcom);
             //   sc.connect();

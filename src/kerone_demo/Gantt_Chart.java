@@ -47,8 +47,8 @@ public class Gantt_Chart extends ApplicationFrame {
 
         // add the chart to a panel...
          ChartPanel chartPanel = new ChartPanel(chart);
-          ChartPanel chartPanel2 = new ChartPanel(chart);
-           ChartPanel chartPanel3 = new ChartPanel(chart);
+         ChartPanel chartPanel2 = new ChartPanel(chart);
+         ChartPanel chartPanel3 = new ChartPanel(chart);
         chartPanel.setPreferredSize(new java.awt.Dimension(800, 200));
         chartPanel2.setPreferredSize(new java.awt.Dimension(800, 200));
         chartPanel3.setPreferredSize(new java.awt.Dimension(800, 200));
@@ -57,13 +57,14 @@ public class Gantt_Chart extends ApplicationFrame {
         
          panel.add(chartPanel2);
          panel.add(chartPanel3);
-        setContentPane(panel);
+         setContentPane(panel);
          CategoryPlot plot = chart.getCategoryPlot();
          
         DateAxis axis = (DateAxis) plot.getRangeAxis();
         axis.setRange(date(10, Calendar.MAY, 2016, 15, 26, 29), date(10, Calendar.MAY, 2016, 15, 27, 39));
         chartPanel.setRangeZoomable(false);
-         chartPanel.setDomainZoomable(false);
+        chartPanel.setDomainZoomable(false);
+       
     //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
      //   axis.setDateFormatOverride(new SimpleDateFormat("S"));
       //  return chart;

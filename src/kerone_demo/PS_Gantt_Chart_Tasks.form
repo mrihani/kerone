@@ -2,7 +2,8 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="0"/>
+    <Property name="title" type="java.lang.String" value="Virtual Machine State"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -71,9 +72,12 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="jPanel1MouseWheelMoved"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="final IntervalCategoryDataset dataset = createDataset3();&#xa;        chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;         ChartPanel chartPanel = new ChartPanel(chart);&#xa;&#xa;jPanel1.add(chartPanel);&#xa;jPanel1.validate();"/>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="final IntervalCategoryDataset dataset = createDataset3();&#xa;        chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;         ChartPanel chartPanel = new ChartPanel(chart);&#xa; CategoryPlot plot = chart.getCategoryPlot();&#xa; axis1 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));&#xa; axis1.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;jPanel1.add(chartPanel);&#xa;jPanel1.validate();"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -86,8 +90,11 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="jPanel3MouseWheelMoved"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;         ChartPanel chartPanel2 = new ChartPanel(chart);&#xa;&#xa;jPanel3.add(chartPanel2);&#xa;jPanel3.validate();"/>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;     ChartPanel     chartPanel2 = new ChartPanel(chart);&#xa;  plot = chart.getCategoryPlot();&#xa; axis3 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));&#xa; axis3.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;jPanel3.add(chartPanel2);&#xa;jPanel3.validate();"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -100,8 +107,11 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="jPanel2MouseWheelMoved"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;         ChartPanel chartPanel3 = new ChartPanel(chart);&#xa;&#xa;jPanel2.add(chartPanel3);&#xa;jPanel2.validate();"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;         chartPanel3 = new ChartPanel(chart);&#xa;  plot = chart.getCategoryPlot();&#xa; axis2 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 100));&#xa; axis2.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;jPanel2.add(chartPanel3);&#xa;jPanel2.validate();"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
