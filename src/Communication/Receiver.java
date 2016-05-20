@@ -6,6 +6,9 @@ package Communication;
 
 import java.util.LinkedList;
 import kerone_demo.Main_Frame;
+import kerone_demo.PL_Frame;
+import kerone_demo.PS_Gantt_Chart_Tasks;
+import kerone_demo.PS_Gantt_Chart_VM;
 
 /**
  *
@@ -13,13 +16,21 @@ import kerone_demo.Main_Frame;
  */
 public class Receiver extends Thread {
 
+    PS_Gantt_Chart_Tasks psgct;
+    PS_Gantt_Chart_VM psgcvm;
+    PL_Frame plframe;
+    
+   
     SerialCommunicator sc;
     final String VM_GPOS = "go";
     final String VM_RTOS = "ro";
     final String VM_Service = "sv";
 
-    public Receiver(SerialCommunicator sc) {
+    public Receiver(SerialCommunicator sc,PS_Gantt_Chart_Tasks psgct,  PS_Gantt_Chart_VM psgcvm,PL_Frame plframe) {
         this.sc = sc;
+        this.psgct = psgct;
+        this.psgcvm= psgcvm;
+        this.plframe= plframe;
     }
 
     @Override
@@ -60,7 +71,7 @@ public class Receiver extends Thread {
                             }
                         }
 
-                        intialize_VM(VM_count, VM_TYPE_LL, VM_PRIO_LL);
+                        intialize_VM( VM_TYPE_LL, VM_PRIO_LL);
                     } else if (s[0].equals("INFO")) {
                         if (s[1].equals("vm")) {
                             String vm_id = s[2];
@@ -92,12 +103,15 @@ public class Receiver extends Thread {
         }
     }
 
-    private void intialize_VM(int VM_count, LinkedList<String> VM_TYPE_LL, LinkedList<String> VM_PRIO_LL) {
+    private void intialize_VM( LinkedList<String> VM_TYPE_LL, LinkedList<String> VM_PRIO_LL) {
         Main_Frame.jTextArea1.append("intialize VM command Recieved \n");
+        psgcvm.intialize(VM_TYPE_LL);
+        psgct.intialize (VM_TYPE_LL,VM_PRIO_LL);
     }
 
     private void Schedule_VM(String vm_id, String sch_time) {
         Main_Frame.jTextArea1.append("Schedule VM command Recieved \n");
+          psgcvm.schedule_VM(vm_id,sch_time);
     }
 
     private void Schedule_Task(String vm_id, String task_id, String sch_time) {

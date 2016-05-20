@@ -6,10 +6,10 @@
 package kerone_demo;
 
 import Communication.Sender;
-import Communication.SerialCommunicator;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JOptionPane;
+import java.util.LinkedList;
+
 
 /**
  *
@@ -210,15 +210,27 @@ public class Main_Frame extends javax.swing.JFrame {
                 frame.setLocation(x, y);
                 frame.setVisible(true);
                 PL_Frame plframe = new PL_Frame();
-                plframe.setLocation(x, y);
+            //    plframe.setLocation(x, y);
                 plframe.setVisible(true);
                 PS_Gantt_Chart_VM ps_gantt_chart_VM = new PS_Gantt_Chart_VM();
-                ps_gantt_chart_VM.setLocation(x, y);
+             //   ps_gantt_chart_VM.setLocation(x, y);
                 ps_gantt_chart_VM.setVisible(true);
                 PS_Gantt_Chart_Tasks ps_gantt_chart_tasks = new PS_Gantt_Chart_Tasks();
-                ps_gantt_chart_tasks.setLocation(x, y);
+           //     ps_gantt_chart_tasks.setLocation(x, y);
                 ps_gantt_chart_tasks.setVisible(true);
-                
+                LinkedList<String> ll = new LinkedList<String>();
+                ll.add("RTOS");
+                 ll.add("GPOS");
+                 ll.add("Service");
+                  LinkedList<String> llp = new LinkedList<String>();
+                llp.add("1");
+                 llp.add("2");
+                 llp.add("3");
+                ps_gantt_chart_tasks.intialize(ll, llp);
+                    ps_gantt_chart_VM.intialize(ll);
+                    ps_gantt_chart_VM.schedule_VM("1", "100");
+                      ps_gantt_chart_VM.schedule_VM("2", "200");
+                        ps_gantt_chart_VM.schedule_VM("3", "300");
             //  String serialcom=JOptionPane.showInputDialog(null,"Enter the Serial port connected to the GSM modem. ex \"COM6");
            //   SerialCommunicator sc = new SerialCommunicator(serialcom);
             //   sc.connect();

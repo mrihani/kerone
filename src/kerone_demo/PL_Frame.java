@@ -372,34 +372,48 @@ public class PL_Frame extends javax.swing.JFrame {
 
         jLabel24.setText("Status:");
 
+        INF_PRP3_Stat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP3_Stat.setText("  ");
 
+        INF_PRP3_RecTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP3_RecTime.setText("  ");
 
+        INF_PRP3_VMID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP3_VMID.setText("  ");
 
+        INF_PRP3_IP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP3_IP.setText("  ");
 
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel29.setText("3");
 
         INF_PRP2_Stat.setText("  ");
 
+        INF_PRP2_RecTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP2_RecTime.setText("  ");
 
+        INF_PRP2_VMID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP2_VMID.setText("  ");
 
+        INF_PRP2_IP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP2_IP.setText("  ");
 
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel34.setText("2");
 
+        INF_PRP1_Stat.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP1_Stat.setText("  ");
 
+        INF_PRP1_RecTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP1_RecTime.setText("  ");
 
+        INF_PRP1_VMID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP1_VMID.setText("  ");
 
+        INF_PRP1_IP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         INF_PRP1_IP.setText("  ");
 
+        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel39.setText("1");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

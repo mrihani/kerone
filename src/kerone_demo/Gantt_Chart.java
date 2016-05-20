@@ -5,27 +5,23 @@
  */
 package kerone_demo;
 
-import java.awt.LayoutManager;
-import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
-import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.data.category.IntervalCategoryDataset;
 import org.jfree.data.gantt.Task;
 import org.jfree.data.gantt.TaskSeries;
 import org.jfree.data.gantt.TaskSeriesCollection;
 import org.jfree.data.time.SimpleTimePeriod;
-import org.jfree.data.xy.XYDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
@@ -198,48 +194,48 @@ public static IntervalCategoryDataset createDataset2() {
 
     }
 
-    public static void main(final String[] args) {
-
-        final Gantt_Chart demo = new Gantt_Chart("Kerone Demo");
-        // JButton but = new JButton("Press");
-        // demo.add(but);
-        demo.pack();
-
-        RefineryUtilities.centerFrameOnScreen(demo);
-        demo.setVisible(true);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Gantt_Chart.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         Task task = new Task("VM5",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 35),
-                        date(10, Calendar.MAY, 2016, 15, 26, 36)));
-        s1.add(task);
-       
-//        IntervalCategoryDataset dataset = createDataset3();
-//        chart = createChart(dataset);
-//        chart.fireChartChanged();
-//        ChartPanel chartPanel = new ChartPanel(chart);
-//      //  chartPanel.setPreferredSize(new java.awt.Dimension(800, 470));
-//        demo.setContentPane(chartPanel);
-//        demo.revalidate();
-//        System.err.println("done");
+//    public static void main(final String[] args) {
+//
+//        final Gantt_Chart demo = new Gantt_Chart("Kerone Demo");
+//        // JButton but = new JButton("Press");
+//        // demo.add(but);
+//        demo.pack();
+//
+//        RefineryUtilities.centerFrameOnScreen(demo);
+//        demo.setVisible(true);
 //        try {
 //            Thread.sleep(2000);
 //        } catch (InterruptedException ex) {
 //            Logger.getLogger(Gantt_Chart.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+//         Task task = new Task("VM5",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 35),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 36)));
+//        s1.add(task);
+//       
+////        IntervalCategoryDataset dataset = createDataset3();
+////        chart = createChart(dataset);
+////        chart.fireChartChanged();
+////        ChartPanel chartPanel = new ChartPanel(chart);
+////      //  chartPanel.setPreferredSize(new java.awt.Dimension(800, 470));
+////        demo.setContentPane(chartPanel);
+////        demo.revalidate();
+////        System.err.println("done");
+////        try {
+////            Thread.sleep(2000);
+////        } catch (InterruptedException ex) {
+////            Logger.getLogger(Gantt_Chart.class.getName()).log(Level.SEVERE, null, ex);
+////        }
+////
+////        dataset = createDataset3();
+////        chart = createChart(dataset);
+////        chart.fireChartChanged();
+////        chartPanel = new ChartPanel(chart);
+////      //  chartPanel.setPreferredSize(new java.awt.Dimension(800, 470));
+////     
+////        demo.setContentPane(chartPanel);
+////        demo.revalidate();
+////        System.err.println("done");
 //
-//        dataset = createDataset3();
-//        chart = createChart(dataset);
-//        chart.fireChartChanged();
-//        chartPanel = new ChartPanel(chart);
-//      //  chartPanel.setPreferredSize(new java.awt.Dimension(800, 470));
-//     
-//        demo.setContentPane(chartPanel);
-//        demo.revalidate();
-//        System.err.println("done");
-
-    }
+//    }
 }

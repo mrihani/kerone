@@ -10,6 +10,7 @@ package kerone_demo;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
 import static kerone_demo.Gantt_Chart.chart;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -63,26 +64,26 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        VM1_PR_Lev_label = new javax.swing.JLabel();
+        VM1_type_label = new javax.swing.JLabel();
+        VM1_current_task_label = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        VM2_current_task_label = new javax.swing.JLabel();
+        VM2_type_label = new javax.swing.JLabel();
+        VM2_PR_Lev_label = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        VM3_current_task_label = new javax.swing.JLabel();
+        VM3_type_label = new javax.swing.JLabel();
+        VM3_PR_Lev_label = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -118,21 +119,25 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         jLabel1.setText("VM ID:");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setText("TYPE:");
+        jLabel2.setText("PRIORITY LEVEL:");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setText("STATUS:");
+        jLabel3.setText("TYPE:");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Current TASK:");
 
-        jLabel13.setText("jLabel13");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setText("1");
 
-        jLabel14.setText("jLabel13");
+        VM1_PR_Lev_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM1_PR_Lev_label.setText(" ");
 
-        jLabel15.setText("jLabel13");
+        VM1_type_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM1_type_label.setText(" ");
 
-        jLabel16.setText("jLabel13");
+        VM1_current_task_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM1_current_task_label.setText(" ");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -142,21 +147,19 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(VM1_current_task_label, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(VM1_type_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(VM1_PR_Lev_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -169,15 +172,15 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel14))
+                    .addComponent(VM1_PR_Lev_label))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel15))
+                    .addComponent(VM1_type_label))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel16))
+                    .addComponent(VM1_current_task_label))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -187,21 +190,25 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         jLabel5.setText("Current TASK:");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel6.setText("STATUS:");
+        jLabel6.setText("TYPE:");
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel7.setText("TYPE:");
+        jLabel7.setText("PRIORITY LEVEL:");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("VM ID:");
 
-        jLabel17.setText("jLabel13");
+        VM2_current_task_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM2_current_task_label.setText(" ");
 
-        jLabel18.setText("jLabel13");
+        VM2_type_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM2_type_label.setText(" ");
 
-        jLabel19.setText("jLabel13");
+        VM2_PR_Lev_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM2_PR_Lev_label.setText(" ");
 
-        jLabel20.setText("jLabel13");
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel20.setText("2");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -213,18 +220,18 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addGap(34, 34, 34)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(VM2_PR_Lev_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(VM2_type_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(6, 6, 6))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(39, 39, 39)
+                        .addComponent(VM2_current_task_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel5Layout.setVerticalGroup(
@@ -238,16 +245,16 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel19))
+                            .addComponent(VM2_PR_Lev_label))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel18))))
+                            .addComponent(VM2_type_label))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel17))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(VM2_current_task_label))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -256,21 +263,25 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         jLabel9.setText("Current TASK:");
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel10.setText("STATUS:");
+        jLabel10.setText("TYPE:");
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel11.setText("TYPE:");
+        jLabel11.setText("PRIORITY LEVEL:");
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel12.setText("VM ID:");
 
-        jLabel21.setText("jLabel13");
+        VM3_current_task_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM3_current_task_label.setText(" ");
 
-        jLabel22.setText("jLabel13");
+        VM3_type_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM3_type_label.setText(" ");
 
-        jLabel23.setText("jLabel13");
+        VM3_PR_Lev_label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        VM3_PR_Lev_label.setText(" ");
 
-        jLabel24.setText("jLabel13");
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel24.setText("3");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -281,23 +292,19 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addGap(54, 54, 54)
-                                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel12)
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(79, 79, 79)))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VM3_PR_Lev_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VM3_type_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VM3_current_task_label, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,15 +316,15 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jLabel23))
+                    .addComponent(VM3_PR_Lev_label))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel22))
+                    .addComponent(VM3_type_label))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel21))
+                    .addComponent(VM3_current_task_label))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -327,7 +334,7 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -342,12 +349,12 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
@@ -365,6 +372,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
 
         //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
         axis1.setDateFormatOverride(new SimpleDateFormat("S"));
+        axis1.setRange(1,  500);
+        chartPanel.setRangeZoomable(false);
+        chartPanel.setDomainZoomable(false);
         jPanel1.add(chartPanel);
         jPanel1.validate();
         chart = createChart(dataset);
@@ -376,6 +386,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
 
         //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
         axis3.setDateFormatOverride(new SimpleDateFormat("S"));
+        axis3.setRange(1,  500);
+        chartPanel.setRangeZoomable(false);
+        chartPanel.setDomainZoomable(false);
         jPanel3.add(chartPanel2);
         jPanel3.validate();
         chart = createChart(dataset);
@@ -387,6 +400,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
 
         //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 100));
         axis2.setDateFormatOverride(new SimpleDateFormat("S"));
+        axis2.setRange(1,  500);
+        chartPanel.setRangeZoomable(false);
+        chartPanel.setDomainZoomable(false);
         jPanel2.add(chartPanel3);
         jPanel2.validate();
 
@@ -518,8 +534,8 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 new SimpleTimePeriod(230,
                         340));
         Task task4 = new Task("VM4",
-                new SimpleTimePeriod(440,
-                        550));
+                new SimpleTimePeriod(1440,
+                        1550));
         Task task1_2 = new Task("VM1",
                 new SimpleTimePeriod(550,
                         660));
@@ -556,22 +572,22 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel VM1_PR_Lev_label;
+    private javax.swing.JLabel VM1_current_task_label;
+    private javax.swing.JLabel VM1_type_label;
+    private javax.swing.JLabel VM2_PR_Lev_label;
+    private javax.swing.JLabel VM2_current_task_label;
+    private javax.swing.JLabel VM2_type_label;
+    private javax.swing.JLabel VM3_PR_Lev_label;
+    private javax.swing.JLabel VM3_current_task_label;
+    private javax.swing.JLabel VM3_type_label;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -587,4 +603,16 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     // End of variables declaration//GEN-END:variables
+
+    public void intialize(LinkedList<String> VM_TYPE_LL, LinkedList<String> VM_PRIO_LL) {
+        VM1_PR_Lev_label.setText(VM_PRIO_LL.get(0));
+        VM2_PR_Lev_label.setText(VM_PRIO_LL.get(1));
+        VM3_PR_Lev_label.setText(VM_PRIO_LL.get(2));
+        VM1_type_label.setText(VM_TYPE_LL.get(0));
+        VM2_type_label.setText(VM_TYPE_LL.get(1));
+        VM3_type_label.setText(VM_TYPE_LL.get(2));
+        VM1_current_task_label.setText("");
+        VM2_current_task_label.setText("");
+        VM3_current_task_label.setText("");
+    }
 }

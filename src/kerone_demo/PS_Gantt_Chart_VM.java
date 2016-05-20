@@ -5,17 +5,16 @@
  */
 package kerone_demo;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import static kerone_demo.Gantt_Chart.chart;
-import static kerone_demo.Gantt_Chart.createDataset3;
-import static kerone_demo.Gantt_Chart.s1;
+import java.util.LinkedList;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.data.category.IntervalCategoryDataset;
 import org.jfree.data.gantt.Task;
 import org.jfree.data.gantt.TaskSeries;
@@ -27,7 +26,10 @@ import org.jfree.data.time.SimpleTimePeriod;
  * @author Fadel
  */
 public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
-
+    LinkedList<Task> task = new LinkedList<Task>();
+    TaskSeries  s1 ;
+    DateAxis axis;
+    JFreeChart chart;
     /**
      * Creates new form Test_Frame
      */
@@ -57,38 +59,51 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        VM_Current_Label = new javax.swing.JLabel();
+        VM1_label = new javax.swing.JLabel();
+        VM2_label = new javax.swing.JLabel();
+        VM3_label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Virtual Machine State");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                jPanel1MouseWheelMoved(evt);
+            }
+        });
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel1.setText("VM ID:");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel1.setText("Current VM:");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setText("TYPE:");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel2.setText("VM 1:");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setText("STATUS:");
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel3.setText("VM 2:");
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel4.setText("Current TASK:");
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel4.setText("VM 3:");
 
-        jLabel13.setText("jLabel13");
+        VM_Current_Label.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        VM_Current_Label.setText(" ");
+        VM_Current_Label.setToolTipText("");
 
-        jLabel14.setText("jLabel13");
+        VM1_label.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        VM1_label.setText(" ");
+        VM1_label.setToolTipText("");
 
-        jLabel15.setText("jLabel13");
+        VM2_label.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        VM2_label.setText(" ");
+        VM2_label.setToolTipText("");
 
-        jLabel16.setText("jLabel13");
+        VM3_label.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        VM3_label.setText(" ");
+        VM3_label.setToolTipText("");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -97,22 +112,19 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VM2_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(VM1_label, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                        .addGap(12, 12, 12))
+                    .addComponent(VM3_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VM_Current_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -121,20 +133,20 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel13))
+                    .addComponent(VM_Current_Label))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel14))
+                    .addComponent(VM1_label))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel15))
+                    .addComponent(VM2_label))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel16))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(VM3_label))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,7 +154,7 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -153,7 +165,9 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -162,12 +176,31 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
 
         // add the chart to a panel...
         ChartPanel chartPanel = new ChartPanel(chart);
+        CategoryPlot plot = chart.getCategoryPlot();
+        axis = (DateAxis) plot.getRangeAxis();
 
+        //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
+        axis.setDateFormatOverride(new SimpleDateFormat("S"));
+
+        axis.setRange(1,  500);
+        chartPanel.setRangeZoomable(false);
+        chartPanel.setDomainZoomable(false);
         jPanel1.add(chartPanel);
         jPanel1.validate();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel1MouseWheelMoved
+        evt.getWheelRotation();
+         if (evt.getWheelRotation()==1)
+            axis.setRange(axis.getRange().getLowerBound()-50, axis.getRange().getUpperBound()+50);
+         else
+             if (evt.getWheelRotation()==-1)
+             {
+               axis.setRange(axis.getRange().getLowerBound()+50, axis.getRange().getUpperBound()-50);  
+             }
+    }//GEN-LAST:event_jPanel1MouseWheelMoved
 
     /**
      * @param args the command line arguments
@@ -228,39 +261,39 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
   public  IntervalCategoryDataset createDataset3() {
 
      
-      TaskSeries  s1 = new TaskSeries("Scheduled");
+      s1 = new TaskSeries("Scheduled");
         Task task1 = new Task("VM1",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 30),
-                        date(10, Calendar.MAY, 2016, 15, 26, 31)));
+                new SimpleTimePeriod(0,
+                        0));
         Task task2 = new Task("VM2",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 31),
-                        date(10, Calendar.MAY, 2016, 15, 26, 32)));
+                new SimpleTimePeriod(0,
+                        0));
         Task task3 = new Task("VM3",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 32),
-                        date(10, Calendar.MAY, 2016, 15, 26, 33)));
-        Task task4 = new Task("VM4",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 33),
-                        date(10, Calendar.MAY, 2016, 15, 26, 34)));
-        Task task1_2 = new Task("VM1",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 34),
-                        date(10, Calendar.MAY, 2016, 15, 26, 35)));
-         Task task2_2 = new Task("VM2",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 36),
-                        date(10, Calendar.MAY, 2016, 15, 26, 37)));
-          Task task3_2 = new Task("VM3",
-                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 35),
-                        date(10, Calendar.MAY, 2016, 15, 26, 36)));
+                new SimpleTimePeriod(0,
+                        0));
+//        Task task4 = new Task("VM4",
+//                new SimpleTimePeriod(0,
+//                        0));
+//        Task task1_2 = new Task("VM1",
+//                new SimpleTimePeriod(0,
+//                        0));
+//         Task task2_2 = new Task("VM2",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 36),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 37)));
+//          Task task3_2 = new Task("VM3",
+//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 35),
+//                        date(10, Calendar.MAY, 2016, 15, 26, 36)));
         
-        task1_2.addSubtask(task1_2);
-        task1_2.addSubtask(task1);
-        s1.add(task1_2);
-         task2.addSubtask(task2);
-        task2.addSubtask(task2_2);
+      //  task1_2.addSubtask(task1_2);
+      //  task1_2.addSubtask(task1);
+      ///  s1.add(task1_2);
+         s1.add(task1);
+      //  task2.addSubtask(task2_2);
         s1.add(task2);
-         task3.addSubtask(task3);
-        task3.addSubtask(task3_2);
+       //  task3.addSubtask(task3);
+      //  task3.addSubtask(task3_2);
         s1.add(task3);
-        s1.add(task4);
+       // s1.add(task4);
         final TaskSeriesCollection collection = new TaskSeriesCollection();
 
         collection.add(s1);
@@ -277,15 +310,31 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel VM1_label;
+    private javax.swing.JLabel VM2_label;
+    private javax.swing.JLabel VM3_label;
+    private javax.swing.JLabel VM_Current_Label;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
+
+    public void intialize( LinkedList<String> VM_TYPE_LL) {
+       VM_Current_Label.setText("");
+       VM1_label.setText(VM_TYPE_LL.get(0));
+       VM2_label.setText(VM_TYPE_LL.get(1));
+       VM3_label.setText(VM_TYPE_LL.get(2));
+    }
+
+    public void schedule_VM(String vm_id, String sch_time) {
+       int vmid = Integer.parseInt(vm_id) -1;
+       int schtime =  Integer.parseInt(sch_time);
+       Task temp = s1.get(vmid);
+       Task subtask = new Task("VM"+(vmid+1),   new SimpleTimePeriod(schtime,
+                        schtime+100));
+       temp.addSubtask(subtask);
+    }
 }

@@ -847,26 +847,41 @@
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP3_Stat">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP3_RecTime">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP3_VMID">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP3_IP">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel29">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="3"/>
               </Properties>
             </Component>
@@ -877,46 +892,73 @@
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP2_RecTime">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP2_VMID">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP2_IP">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel34">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="2"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP1_Stat">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP1_RecTime">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP1_VMID">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="INF_PRP1_IP">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="  "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel39">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="1"/>
               </Properties>
             </Component>
