@@ -163,14 +163,14 @@ public class Main_Frame extends javax.swing.JFrame {
                 break;
             case 9:
                 sender.SendCommand("SLOW_DIS");
-                 jTextArea1.append("Slow Mode Disble Command Sent\n");
+                jTextArea1.append("Slow Mode Disble Command Sent\n");
                 break;
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       jTextArea1.setText("");
+        jTextArea1.setText("");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
@@ -210,31 +210,70 @@ public class Main_Frame extends javax.swing.JFrame {
                 frame.setLocation(x, y);
                 frame.setVisible(true);
                 PL_Frame plframe = new PL_Frame();
-            //    plframe.setLocation(x, y);
+                //    plframe.setLocation(x, y);
                 plframe.setVisible(true);
                 PS_Gantt_Chart_VM ps_gantt_chart_VM = new PS_Gantt_Chart_VM();
-             //   ps_gantt_chart_VM.setLocation(x, y);
+                //   ps_gantt_chart_VM.setLocation(x, y);
                 ps_gantt_chart_VM.setVisible(true);
                 PS_Gantt_Chart_Tasks ps_gantt_chart_tasks = new PS_Gantt_Chart_Tasks();
-           //     ps_gantt_chart_tasks.setLocation(x, y);
+                //     ps_gantt_chart_tasks.setLocation(x, y);
                 ps_gantt_chart_tasks.setVisible(true);
-                LinkedList<String> ll = new LinkedList<String>();
-                ll.add("RTOS");
-                 ll.add("GPOS");
-                 ll.add("Service");
-                  LinkedList<String> llp = new LinkedList<String>();
-                llp.add("1");
-                 llp.add("2");
-                 llp.add("3");
-                ps_gantt_chart_tasks.intialize(ll, llp);
-                    ps_gantt_chart_VM.intialize(ll);
-                    ps_gantt_chart_VM.schedule_VM("1", "100");
-                      ps_gantt_chart_VM.schedule_VM("2", "200");
-                        ps_gantt_chart_VM.schedule_VM("3", "300");
-            //  String serialcom=JOptionPane.showInputDialog(null,"Enter the Serial port connected to the GSM modem. ex \"COM6");
-           //   SerialCommunicator sc = new SerialCommunicator(serialcom);
-            //   sc.connect();
+//                LinkedList<String> ll = new LinkedList<String>();
+//                ll.add("RTOS");
+//                ll.add("GPOS");
+//                ll.add("Service");
+//                LinkedList<String> llp = new LinkedList<String>();
+//                llp.add("1");
+//                llp.add("2");
+//                llp.add("3");
+//                ps_gantt_chart_tasks.intialize(ll, llp);
+//                ps_gantt_chart_VM.intialize(ll);
+//                ps_gantt_chart_VM.schedule_VM("1", "100");
+//                ps_gantt_chart_VM.schedule_VM("2", "200");
+//                ps_gantt_chart_VM.schedule_VM("3", "300");
+//
+//                ps_gantt_chart_tasks.schedule_tasks("1", "1", "100");
+//                ps_gantt_chart_tasks.schedule_tasks("1", "2", "200");
+//                ps_gantt_chart_tasks.schedule_tasks("1", "3", "300");
+//                ps_gantt_chart_tasks.schedule_tasks("2", "3", "100");
+//                ps_gantt_chart_tasks.schedule_tasks("2", "2", "200");
+//                ps_gantt_chart_tasks.schedule_tasks("2", "1", "300");
+//                ps_gantt_chart_tasks.schedule_tasks("3", "1", "100");
+//                ps_gantt_chart_tasks.schedule_tasks("3", "2", "200");
+//                ps_gantt_chart_tasks.schedule_tasks("3", "3", "300");
+//
+//                plframe.allocate("1", "FFT", "i", "1");
+//                plframe.allocate("2", "QAM", "b", "2");
+//                plframe.allocate("3", "ENC1", "p", "3");
+//                plframe.add_message("Message 1 ");
+//
+////                try {
+////                    Thread.sleep(5000);
+////                } catch (InterruptedException ex) {
+////                    Logger.getLogger(Main_Frame.class.getName()).log(Level.SEVERE, null, ex);
+////                }
+//                ps_gantt_chart_VM.schedule_VM("1", "400");
+//                ps_gantt_chart_VM.schedule_VM("2", "500");
+//                ps_gantt_chart_VM.schedule_VM("3", "600");
+//
+//                ps_gantt_chart_tasks.schedule_tasks("1", "1", "400");
+//                ps_gantt_chart_tasks.schedule_tasks("1", "2", "500");
+//                ps_gantt_chart_tasks.schedule_tasks("1", "3", "1100");
+//                ps_gantt_chart_tasks.schedule_tasks("2", "3", "400");
+//                ps_gantt_chart_tasks.schedule_tasks("2", "2", "500");
+//                ps_gantt_chart_tasks.schedule_tasks("2", "1", "600");
+//                ps_gantt_chart_tasks.schedule_tasks("3", "1", "800");
+//                ps_gantt_chart_tasks.schedule_tasks("3", "2", "700");
+//                ps_gantt_chart_tasks.schedule_tasks("3", "3", "1000");
+//
+//                plframe.allocate("1", "FFT2000", "r", "1");
+//                plframe.allocate("2", "QAM85", "i", "2");
+//                plframe.allocate("3", "ENC3", "b", "3");
+//                plframe.add_message("Message 2 ");
 
+                //  String serialcom=JOptionPane.showInputDialog(null,"Enter the Serial port connected to the GSM modem. ex \"COM6");
+                //   SerialCommunicator sc = new SerialCommunicator(serialcom);
+                //   sc.connect();
             }
         });
     }

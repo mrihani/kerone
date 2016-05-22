@@ -26,9 +26,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jPanel2" alignment="0" pref="683" max="32767" attributes="0"/>
+                  <Component id="jPanel3" alignment="0" pref="683" max="32767" attributes="0"/>
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -51,11 +51,11 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel5" max="32767" attributes="0"/>
-                  <Component id="jPanel3" pref="187" max="32767" attributes="0"/>
+                  <Component id="jPanel2" pref="187" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel2" pref="186" max="32767" attributes="0"/>
+                  <Component id="jPanel3" pref="186" max="32767" attributes="0"/>
                   <Component id="jPanel6" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -77,24 +77,7 @@
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="final IntervalCategoryDataset dataset = createDataset3();&#xa;        chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;         ChartPanel chartPanel = new ChartPanel(chart);&#xa; CategoryPlot plot = chart.getCategoryPlot();&#xa; axis1 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));&#xa; axis1.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;axis1.setRange(1,  500);&#xa;        chartPanel.setRangeZoomable(false);&#xa;        chartPanel.setDomainZoomable(false);&#xa;jPanel1.add(chartPanel);&#xa;jPanel1.validate();"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanel3">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
-          </Border>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="jPanel3MouseWheelMoved"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;     ChartPanel     chartPanel2 = new ChartPanel(chart);&#xa;  plot = chart.getCategoryPlot();&#xa; axis3 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));&#xa; axis3.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;axis3.setRange(1,  500);&#xa;        chartPanel.setRangeZoomable(false);&#xa;        chartPanel.setDomainZoomable(false);&#xa;jPanel3.add(chartPanel2);&#xa;jPanel3.validate();"/>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="IntervalCategoryDataset dataset1 = createDataset1();&#xa;        chart1 = createChart(dataset1);&#xa;&#xa;        // add the chart to a panel...&#xa;          chartPanel1 = new ChartPanel(chart1);&#xa; CategoryPlot plot = chart1.getCategoryPlot();&#xa; axis1 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));&#xa; axis1.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;axis1.setRange(1,  500);&#xa;        chartPanel1.setRangeZoomable(false);&#xa;        chartPanel1.setDomainZoomable(false);&#xa;jPanel1.add(chartPanel1);&#xa;jPanel1.validate();"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -111,7 +94,24 @@
         <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="jPanel2MouseWheelMoved"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="chart = createChart(dataset);&#xa;&#xa;        // add the chart to a panel...&#xa;         chartPanel3 = new ChartPanel(chart);&#xa;  plot = chart.getCategoryPlot();&#xa; axis2 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 100));&#xa; axis2.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;axis2.setRange(1,  500);&#xa;        chartPanel.setRangeZoomable(false);&#xa;        chartPanel.setDomainZoomable(false);&#xa;jPanel2.add(chartPanel3);&#xa;jPanel2.validate();"/>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="IntervalCategoryDataset dataset2 = createDataset2();&#xa;chart2 = createChart(dataset2);&#xa;&#xa;        // add the chart to a panel...&#xa;   chartPanel2 = new ChartPanel(chart2);&#xa;  plot = chart2.getCategoryPlot();&#xa; axis2 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));&#xa; axis2.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;axis2.setRange(1,  500);&#xa;        chartPanel2.setRangeZoomable(false);&#xa;        chartPanel2.setDomainZoomable(false);&#xa;jPanel2.add(chartPanel2);&#xa;jPanel2.validate();"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel3">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseWheelMoved" listener="java.awt.event.MouseWheelListener" parameters="java.awt.event.MouseWheelEvent" handler="jPanel3MouseWheelMoved"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="IntervalCategoryDataset dataset3 = createDataset3();&#xa;chart3 = createChart(dataset3);&#xa;&#xa;        // add the chart to a panel...&#xa;         chartPanel3 = new ChartPanel(chart3);&#xa;  plot = chart3.getCategoryPlot();&#xa; axis3 = (DateAxis) plot.getRangeAxis();&#xa;&#xa; //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 100));&#xa; axis3.setDateFormatOverride(new SimpleDateFormat(&quot;S&quot;));&#xa;axis3.setRange(1,  500);&#xa;        chartPanel3.setRangeZoomable(false);&#xa;        chartPanel3.setDomainZoomable(false);&#xa;jPanel3.add(chartPanel3);&#xa;jPanel3.validate();"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>

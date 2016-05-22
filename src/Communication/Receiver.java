@@ -73,27 +73,38 @@ public class Receiver extends Thread {
 
                         intialize_VM( VM_TYPE_LL, VM_PRIO_LL);
                     } else if (s[0].equals("INFO")) {
-                        if (s[1].equals("vm")) {
-                            String vm_id = s[2];
-                            String sch_time = s[3];
-                            Schedule_VM(vm_id, sch_time);
-                        } else if (s[1].equals("tk")) {
-                            String vm_id = s[2];
-                            String task_id = s[3];
-                            String sch_time = s[4];
-                            Schedule_Task(vm_id,task_id, sch_time);
-                        }
-                        else if (s[1].equals("pl")) {
-                            String pr_id = s[2];
-                            String acc = s[3];
-                            String state = s[4];
-                            String vm_id = s[5];
-                            Allocate_PL(pr_id,acc, state,vm_id);
-                        }
-                        else if (s[1].equals("ms")) {
-                          String [] splited = command.split("<");
-                          String message = splited[1];
-                          PL_message(message);
+                        switch (s[1]) {
+                            case "vm":
+                                {
+                                    String vm_id = s[2];
+                                    String sch_time = s[3];
+                                    Schedule_VM(vm_id, sch_time);
+                                    break;
+                                }
+                            case "tk":
+                                {
+                                    String vm_id = s[2];
+                                    String task_id = s[3];
+                                    String sch_time = s[4];
+                                    Schedule_Task(vm_id,task_id, sch_time);
+                                    break;
+                                }
+                            case "pl":
+                                {
+                                    String pr_id = s[2];
+                                    String acc = s[3];
+                                    String state = s[4];
+                                    String vm_id = s[5];
+                                    Allocate_PL(pr_id,acc, state,vm_id);
+                                    break;
+                                }
+                            case "ms":
+                                String [] splited = command.split("<");
+                                String message = splited[1];
+                                PL_message(message);
+                                break;
+                            default:
+                                break;
                         }
                         
                     }
@@ -111,19 +122,22 @@ public class Receiver extends Thread {
 
     private void Schedule_VM(String vm_id, String sch_time) {
         Main_Frame.jTextArea1.append("Schedule VM command Recieved \n");
-          psgcvm.schedule_VM(vm_id,sch_time);
+        psgcvm.schedule_VM(vm_id,sch_time);
     }
 
     private void Schedule_Task(String vm_id, String task_id, String sch_time) {
          Main_Frame.jTextArea1.append("Schedule Task command Recieved \n");
+         psgct.schedule_tasks(vm_id,task_id,sch_time);
     }
 
     private void Allocate_PL(String pr_id, String acc, String state, String vm_id) {
-         Main_Frame.jTextArea1.append("Allocate PL command Received \n");
+        Main_Frame.jTextArea1.append("Allocate PL command Received \n");
+        plframe.allocate(pr_id,acc,state,vm_id);
     }
 
     private void PL_message(String message) {
       Main_Frame.jTextArea1.append("PL INfO Message Received \n");
+      plframe.add_message(message);
     }
 
 }

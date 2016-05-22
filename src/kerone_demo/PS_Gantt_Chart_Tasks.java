@@ -5,13 +5,11 @@
  */
 package kerone_demo;
 
-
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
-import static kerone_demo.Gantt_Chart.chart;
+import java.util.List;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -28,13 +26,24 @@ import org.jfree.data.time.SimpleTimePeriod;
  * @author Fadel
  */
 public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
-   static DateAxis axis1;
-   static DateAxis axis2;
-   static DateAxis axis3;
-   static ChartPanel    chartPanel3 ;
-    /**
-     * Creates new form Test_Frame
-     */
+
+    DateAxis axis1;
+    DateAxis axis2;
+    DateAxis axis3;
+    ChartPanel chartPanel1;
+    ChartPanel chartPanel2;
+    ChartPanel chartPanel3;
+    LinkedList<Task> tasks1 = new LinkedList<Task>();
+    LinkedList<Task> tasks2 = new LinkedList<Task>();
+    LinkedList<Task> tasks3 = new LinkedList<Task>();
+    LinkedList<TaskSeries> series = new LinkedList<TaskSeries>();
+    TaskSeries s1;
+    TaskSeries s2;
+    TaskSeries s3;
+    JFreeChart chart1;
+    JFreeChart chart2;
+    JFreeChart chart3;
+
     public PS_Gantt_Chart_Tasks() {
 //          IntervalCategoryDataset dataset = createDataset3();
 //          JFreeChart chart = createChart(dataset);
@@ -42,8 +51,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
 //        // add the chart to a panel...
 //         ChartPanel chartPanel = new ChartPanel(chart);
 //     
+
         initComponents();
-        
+
     }
 
     /**
@@ -56,8 +66,8 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -97,14 +107,6 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         });
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
-            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
-                jPanel3MouseWheelMoved(evt);
-            }
-        });
-        jPanel3.setLayout(new java.awt.BorderLayout());
-
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
@@ -112,6 +114,14 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
             }
         });
         jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                jPanel3MouseWheelMoved(evt);
+            }
+        });
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -334,9 +344,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -354,92 +364,88 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        final IntervalCategoryDataset dataset = createDataset3();
-        chart = createChart(dataset);
+        IntervalCategoryDataset dataset1 = createDataset1();
+        chart1 = createChart(dataset1);
 
         // add the chart to a panel...
-        ChartPanel chartPanel = new ChartPanel(chart);
-        CategoryPlot plot = chart.getCategoryPlot();
+        chartPanel1 = new ChartPanel(chart1);
+        CategoryPlot plot = chart1.getCategoryPlot();
         axis1 = (DateAxis) plot.getRangeAxis();
 
         //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
         axis1.setDateFormatOverride(new SimpleDateFormat("S"));
         axis1.setRange(1,  500);
-        chartPanel.setRangeZoomable(false);
-        chartPanel.setDomainZoomable(false);
-        jPanel1.add(chartPanel);
+        chartPanel1.setRangeZoomable(false);
+        chartPanel1.setDomainZoomable(false);
+        jPanel1.add(chartPanel1);
         jPanel1.validate();
-        chart = createChart(dataset);
+        IntervalCategoryDataset dataset2 = createDataset2();
+        chart2 = createChart(dataset2);
 
         // add the chart to a panel...
-        ChartPanel     chartPanel2 = new ChartPanel(chart);
-        plot = chart.getCategoryPlot();
-        axis3 = (DateAxis) plot.getRangeAxis();
-
-        //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
-        axis3.setDateFormatOverride(new SimpleDateFormat("S"));
-        axis3.setRange(1,  500);
-        chartPanel.setRangeZoomable(false);
-        chartPanel.setDomainZoomable(false);
-        jPanel3.add(chartPanel2);
-        jPanel3.validate();
-        chart = createChart(dataset);
-
-        // add the chart to a panel...
-        chartPanel3 = new ChartPanel(chart);
-        plot = chart.getCategoryPlot();
+        chartPanel2 = new ChartPanel(chart2);
+        plot = chart2.getCategoryPlot();
         axis2 = (DateAxis) plot.getRangeAxis();
 
-        //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 100));
+        //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 10));
         axis2.setDateFormatOverride(new SimpleDateFormat("S"));
         axis2.setRange(1,  500);
-        chartPanel.setRangeZoomable(false);
-        chartPanel.setDomainZoomable(false);
-        jPanel2.add(chartPanel3);
+        chartPanel2.setRangeZoomable(false);
+        chartPanel2.setDomainZoomable(false);
+        jPanel2.add(chartPanel2);
         jPanel2.validate();
+        IntervalCategoryDataset dataset3 = createDataset3();
+        chart3 = createChart(dataset3);
+
+        // add the chart to a panel...
+        chartPanel3 = new ChartPanel(chart3);
+        plot = chart3.getCategoryPlot();
+        axis3 = (DateAxis) plot.getRangeAxis();
+
+        //axis.setTickUnit(new DateTickUnit(DateTickUnitType.MILLISECOND, 100));
+        axis3.setDateFormatOverride(new SimpleDateFormat("S"));
+        axis3.setRange(1,  500);
+        chartPanel3.setRangeZoomable(false);
+        chartPanel3.setDomainZoomable(false);
+        jPanel3.add(chartPanel3);
+        jPanel3.validate();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
-       evt.getWheelRotation();
-         if (evt.getWheelRotation()==1)
-            axis2.setRange(axis2.getRange().getLowerBound()-50, axis2.getRange().getUpperBound()+50);
-         else
-             if (evt.getWheelRotation()==-1)
-             {
-               axis2.setRange(axis2.getRange().getLowerBound()+50, axis2.getRange().getUpperBound()-50);  
-             }
-    }//GEN-LAST:event_jPanel2MouseWheelMoved
-
     private void jPanel3MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel3MouseWheelMoved
         evt.getWheelRotation();
-         if (evt.getWheelRotation()==1)
-            axis3.setRange(axis3.getRange().getLowerBound()-50, axis3.getRange().getUpperBound()+50);
-         else
-             if (evt.getWheelRotation()==-1)
-             {
-               axis3.setRange(axis3.getRange().getLowerBound()+50, axis3.getRange().getUpperBound()-50);  
-             }
+        if (evt.getWheelRotation() == 1) {
+            axis3.setRange(axis3.getRange().getLowerBound() - 50, axis3.getRange().getUpperBound() + 50);
+        } else if (evt.getWheelRotation() == -1) {
+            axis3.setRange(axis3.getRange().getLowerBound() + 50, axis3.getRange().getUpperBound() - 50);
+        }
     }//GEN-LAST:event_jPanel3MouseWheelMoved
 
+    private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
+        evt.getWheelRotation();
+        if (evt.getWheelRotation() == 1) {
+            axis2.setRange(axis2.getRange().getLowerBound() - 50, axis2.getRange().getUpperBound() + 50);
+        } else if (evt.getWheelRotation() == -1) {
+            axis2.setRange(axis2.getRange().getLowerBound() + 50, axis2.getRange().getUpperBound() - 50);
+        }
+    }//GEN-LAST:event_jPanel2MouseWheelMoved
+
     private void jPanel1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel1MouseWheelMoved
-       evt.getWheelRotation();
-         if (evt.getWheelRotation()==1)
-            axis1.setRange(axis1.getRange().getLowerBound()-50, axis1.getRange().getUpperBound()+50);
-         else
-             if (evt.getWheelRotation()==-1)
-             {
-               axis1.setRange(axis1.getRange().getLowerBound()+50, axis1.getRange().getUpperBound()-50);  
-             }
+        evt.getWheelRotation();
+        if (evt.getWheelRotation() == 1) {
+            axis1.setRange(axis1.getRange().getLowerBound() - 50, axis1.getRange().getUpperBound() + 50);
+        } else if (evt.getWheelRotation() == -1) {
+            axis1.setRange(axis1.getRange().getLowerBound() + 50, axis1.getRange().getUpperBound() - 50);
+        }
     }//GEN-LAST:event_jPanel1MouseWheelMoved
 
     /**
@@ -485,10 +491,10 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
 //            }
 //        });
 //    }
- public static JFreeChart createChart(final IntervalCategoryDataset dataset) {
+    public static JFreeChart createChart(final IntervalCategoryDataset dataset) {
         final JFreeChart chart = ChartFactory.createGanttChart(
-                "VM Scheduling", // chart title
-                "VM", // domain axis label
+                "Task Scheduling", // chart title
+                "Tasks", // domain axis label
                 "Time", // range axis label
                 dataset, // data
                 false, // include legend
@@ -498,72 +504,79 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         //chart.getCategoryPlot().getDomainAxis().setMaxCategoryLabelWidthRatio(10.0f);
         return chart;
     }
- 
-  public  IntervalCategoryDataset createDataset3() {
 
-     
-      TaskSeries  s1 = new TaskSeries("Scheduled");
-//        Task task1 = new Task("VM1",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 30),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 31)));
-//        Task task2 = new Task("VM2",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 31),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 32)));
-//        Task task3 = new Task("VM3",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 32),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 33)));
-//        Task task4 = new Task("VM4",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 33),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 34)));
-//        Task task1_2 = new Task("VM1",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 34),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 35)));
-//         Task task2_2 = new Task("VM2",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 36),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 37)));
-//          Task task3_2 = new Task("VM3",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 35),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 36)));
-       Task task1 = new Task("VM1",
-                new SimpleTimePeriod(110,
-                        120));
-        Task task2 = new Task("VM2",
-                new SimpleTimePeriod(120,
-                        230));
-        Task task3 = new Task("VM3",
-                new SimpleTimePeriod(230,
-                        340));
-        Task task4 = new Task("VM4",
-                new SimpleTimePeriod(1440,
-                        1550));
-        Task task1_2 = new Task("VM1",
-                new SimpleTimePeriod(550,
-                        660));
-         Task task2_2 = new Task("VM2",
-                new SimpleTimePeriod(760,
-                        770));
-          Task task3_2 = new Task("VM3",
-                new SimpleTimePeriod(770,
-                        780));
-        
-        task1_2.addSubtask(task1_2);
-        task1_2.addSubtask(task1);
-        s1.add(task1_2);
-         task2.addSubtask(task2);
-        task2.addSubtask(task2_2);
-        s1.add(task2);
-         task3.addSubtask(task3);
-        task3.addSubtask(task3_2);
-        s1.add(task3);
-        s1.add(task4);
-        final TaskSeriesCollection collection = new TaskSeriesCollection();
+    public IntervalCategoryDataset createDataset3() {
 
-        collection.add(s1);
+        s3 = new TaskSeries("Scheduled");
+        Task task1 = new Task("Task1",
+                new SimpleTimePeriod(0,
+                        0));
+        Task task2 = new Task("Task2",
+                new SimpleTimePeriod(0,
+                        0));
+        Task task3 = new Task("Task3",
+                new SimpleTimePeriod(0,
+                        0));
+        s3.add(task1);
+        s3.add(task2);
+        s3.add(task3);
+        TaskSeriesCollection collection = new TaskSeriesCollection();
+
+        collection.add(s3);
         //  collection.add(s2);
+        series.add(s3);
+        return collection;
+    }
+
+    public IntervalCategoryDataset createDataset2() {
+
+        s2 = new TaskSeries("Scheduled");
+        Task task1 = new Task("Task1",
+                new SimpleTimePeriod(0,
+                        0));
+        Task task2 = new Task("Task2",
+                new SimpleTimePeriod(0,
+                        0));
+        Task task3 = new Task("Task3",
+                new SimpleTimePeriod(0,
+                        0));
+        s2.add(task1);
+        s2.add(task2);
+        s2.add(task3);
+        TaskSeriesCollection collection = new TaskSeriesCollection();
+
+        collection.add(s2);
+        //  collection.add(s2);
+        series.add(s2);
 
         return collection;
     }
-   private static Date date(final int day, final int month, final int year, final int hour, final int min, final int sec) {
+
+    public IntervalCategoryDataset createDataset1() {
+
+        s1 = new TaskSeries("Scheduled");
+        Task task1 = new Task("Task1",
+                new SimpleTimePeriod(0,
+                        0));
+        Task task2 = new Task("Task2",
+                new SimpleTimePeriod(0,
+                        0));
+        Task task3 = new Task("Task3",
+                new SimpleTimePeriod(0,
+                        0));
+        s1.add(task1);
+        s1.add(task2);
+        s1.add(task3);
+        TaskSeriesCollection collection = new TaskSeriesCollection();
+
+        collection.add(s1);
+        //  collection.add(s2);
+        series.add(s1);
+
+        return collection;
+    }
+
+    private static Date date(final int day, final int month, final int year, final int hour, final int min, final int sec) {
 
         final Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day, hour, min, sec);
@@ -614,5 +627,58 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         VM1_current_task_label.setText("");
         VM2_current_task_label.setText("");
         VM3_current_task_label.setText("");
+    }
+
+    public void schedule_tasks(String vm_id, String task_id, String sch_time) {
+        int vmid = Integer.parseInt(vm_id) - 1;
+        int taskid = Integer.parseInt(task_id) - 1;
+        int schtime = Integer.parseInt(sch_time);
+
+        Task temp = series.get(vmid).get(taskid);
+        Task subtask = new Task("Task" + (taskid + 1), new SimpleTimePeriod(schtime,
+                schtime + 100));
+        temp.addSubtask(subtask);
+        switch (vmid) {
+            case 0:
+                this.VM1_current_task_label.setText("Task" + (taskid + 1));
+                  SetRange(vmid,axis1);
+                break;
+            case 1:
+                this.VM2_current_task_label.setText("Task" + (taskid + 1));
+                 SetRange(vmid,axis2);
+                break;
+            case 2:
+                this.VM3_current_task_label.setText("Task" + (taskid + 1));
+                 SetRange(vmid,axis3);
+                break;
+            default:
+                break;
+        }
+
+      
+    }
+
+    private void SetRange(int vmid,DateAxis axis) {
+        long max = 0;
+        List tasks = series.get(vmid).getTasks();
+        for (int i = 0; i < tasks.size(); i++) {
+            Task tasktemp = (Task) tasks.get(i);
+            int subnumb = tasktemp.getSubtaskCount();
+            for (int j = 0; j < subnumb; j++) {
+                Date start = tasktemp.getSubtask(j).getDuration().getEnd();
+                if (start.getTime() > max) {
+                    max = start.getTime();
+                }
+            }
+        }
+        
+        if (max<500)
+        {
+           axis.setRange(1,500);
+        }else 
+        {
+          axis.setRange(max-499,max);  
+        }
+
     }
 }

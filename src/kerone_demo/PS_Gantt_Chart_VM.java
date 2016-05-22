@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -271,34 +272,16 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
         Task task3 = new Task("VM3",
                 new SimpleTimePeriod(0,
                         0));
-//        Task task4 = new Task("VM4",
-//                new SimpleTimePeriod(0,
-//                        0));
-//        Task task1_2 = new Task("VM1",
-//                new SimpleTimePeriod(0,
-//                        0));
-//         Task task2_2 = new Task("VM2",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 36),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 37)));
-//          Task task3_2 = new Task("VM3",
-//                new SimpleTimePeriod(date(10, Calendar.MAY, 2016, 15, 26, 35),
-//                        date(10, Calendar.MAY, 2016, 15, 26, 36)));
-        
-      //  task1_2.addSubtask(task1_2);
-      //  task1_2.addSubtask(task1);
-      ///  s1.add(task1_2);
+
          s1.add(task1);
-      //  task2.addSubtask(task2_2);
+
         s1.add(task2);
-       //  task3.addSubtask(task3);
-      //  task3.addSubtask(task3_2);
+     
         s1.add(task3);
-       // s1.add(task4);
+
         final TaskSeriesCollection collection = new TaskSeriesCollection();
 
         collection.add(s1);
-        //  collection.add(s2);
-
         return collection;
     }
    private static Date date(final int day, final int month, final int year, final int hour, final int min, final int sec) {
@@ -336,5 +319,29 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
        Task subtask = new Task("VM"+(vmid+1),   new SimpleTimePeriod(schtime,
                         schtime+100));
        temp.addSubtask(subtask);
+       SetRange();
+    }
+    
+     private void SetRange( ) {
+        long max = 0;
+          List tasks = s1.getTasks();
+         for (int i = 0; i < tasks.size(); i++) {
+            Task tasktemp = (Task) tasks.get(i);
+            int subnumb = tasktemp.getSubtaskCount();
+            for (int j = 0; j < subnumb; j++) {
+                Date start = tasktemp.getSubtask(j).getDuration().getEnd();
+                if (start.getTime() > max) {
+                    max = start.getTime();
+                }
+            }
+        }
+        if (max<500)
+        {
+           axis.setRange(1,500);
+        }else 
+        {
+          axis.setRange(max-499,max);  
+        }
+
     }
 }
