@@ -41,6 +41,8 @@ public class Receiver extends Thread {
         //      sc.connect();
         String command;
         while (true) {
+            if (Main_Frame.connect_status==0)
+                break;
             command = sc.getReply();
             if (command != null) {
                 String[] s = command.split(" ");

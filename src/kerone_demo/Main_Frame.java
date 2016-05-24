@@ -5,11 +5,14 @@
  */
 package kerone_demo;
 
+import Communication.Receiver;
 import Communication.Sender;
+import Communication.SerialCommunicator;
+import gnu.io.CommPortIdentifier;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.LinkedList;
-
+import java.util.Enumeration;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,13 +21,18 @@ import java.util.LinkedList;
 public class Main_Frame extends javax.swing.JFrame {
 
     Sender sender;
+    SerialCommunicator sc;
+    public static int connect_status;
+    PL_Frame plframe;
+    PS_Gantt_Chart_VM ps_gantt_chart_VM;
+    PS_Gantt_Chart_Tasks ps_gantt_chart_tasks;
 
     /**
      * Creates new form Main_Frame
      */
     public Main_Frame() {
         initComponents();
-        sender = new Sender();
+        sender = new Sender(sc);
     }
 
     /**
@@ -41,6 +49,8 @@ public class Main_Frame extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -63,6 +73,16 @@ public class Main_Frame extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Run", "Stop", "VM Scheduling Enable", "VM Scheduling Disable", "Task Scheduling Enable", "Task Scheduling Disable", "PL Allocation Enable", "PL Allocation Disable", "Slow mode Enable", "Slow mode Disable" }));
 
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton2.setText("Connect");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,14 +94,23 @@ public class Main_Frame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jComboBox1, 0, 426, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
@@ -123,6 +152,11 @@ public class Main_Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         if (connect_status==0)
+         {
+             jTextArea1.append("Not Connected! Please connect first! \n");
+         }
+
         int selectedindex = jComboBox1.getSelectedIndex();
         switch (selectedindex) {
             case 0:
@@ -173,9 +207,45 @@ public class Main_Frame extends javax.swing.JFrame {
         jTextArea1.setText("");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (jButton2.getText().equals("Connect")) {
+            sc = new SerialCommunicator(String.valueOf(jComboBox2.getSelectedItem()));
+
+            boolean connect = sc.connect();
+            if (connect) {
+                jTextArea1.append("Connected on " + jComboBox2.getSelectedItem() + " \n");
+                jButton2.setText("Disconnect");
+                connect_status = 1;
+                Receiver rc = new Receiver(sc, ps_gantt_chart_tasks, ps_gantt_chart_VM, plframe);
+                rc.start();
+            }
+        } else {
+            jTextArea1.append("Diconnected on " + jComboBox2.getSelectedItem() + " \n");
+            sc.disconnect();
+            jButton2.setText("Connect");
+            connect_status = 0;
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    public void getComPorts() {
+        Enumeration portList = CommPortIdentifier.getPortIdentifiers();
+        if (!portList.hasMoreElements()) {
+            JOptionPane.showMessageDialog(rootPane, "NO COM PORTS FOUND ON PC !");
+            return;
+        }
+        while (portList.hasMoreElements()) {
+            //   System.out.println("Has more elements");
+            CommPortIdentifier portId = (CommPortIdentifier) portList.nextElement();
+
+            jComboBox2.addItem(portId.getName());
+        }
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -209,15 +279,17 @@ public class Main_Frame extends javax.swing.JFrame {
                 int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
                 frame.setLocation(x, y);
                 frame.setVisible(true);
-                PL_Frame plframe = new PL_Frame();
-                //    plframe.setLocation(x, y);
-                plframe.setVisible(true);
-                PS_Gantt_Chart_VM ps_gantt_chart_VM = new PS_Gantt_Chart_VM();
-                //   ps_gantt_chart_VM.setLocation(x, y);
-                ps_gantt_chart_VM.setVisible(true);
-                PS_Gantt_Chart_Tasks ps_gantt_chart_tasks = new PS_Gantt_Chart_Tasks();
-                //     ps_gantt_chart_tasks.setLocation(x, y);
-                ps_gantt_chart_tasks.setVisible(true);
+                frame.plframe = new PL_Frame();
+
+                frame.plframe.setVisible(true);
+                frame.ps_gantt_chart_VM = new PS_Gantt_Chart_VM();
+
+                frame.ps_gantt_chart_VM.setVisible(true);
+                frame.ps_gantt_chart_tasks = new PS_Gantt_Chart_Tasks();
+
+                frame.ps_gantt_chart_tasks.setVisible(true);
+
+                frame.getComPorts();
 //                LinkedList<String> ll = new LinkedList<String>();
 //                ll.add("RTOS");
 //                ll.add("GPOS");
@@ -280,7 +352,9 @@ public class Main_Frame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

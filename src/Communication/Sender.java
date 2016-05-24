@@ -10,16 +10,20 @@ package Communication;
  * @author Fadel
  */
 public class Sender {
+      SerialCommunicator sc;  
+    public Sender(SerialCommunicator sc) {
+       this.sc=sc;
+    }
 
-    public String RunStop(int runstop) {
+    public void RunStop(int runstop) {
         if (runstop == 0) {
-            return "CMD r END";
+            sc.send( "CMD r END\n");
         } else {
-            return "CMD s END";
+            sc.send( "CMD s END\n");
         }
     }
 
-    public String SendCommand(String Commmand) {
+    public void SendCommand(String Commmand) {
         String command = "";
         switch (Commmand) {
             case "VM_SCH_EN":
@@ -47,6 +51,6 @@ public class Sender {
                 command = "c30";
                 break;
         }
-        return "CMD " + command + " END";
+        sc.send( "CMD " + command + " END\n");
     }
 }
