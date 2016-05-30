@@ -12,6 +12,7 @@ import gnu.io.CommPortIdentifier;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.Enumeration;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
@@ -97,9 +98,9 @@ public class Main_Frame extends javax.swing.JFrame {
                         .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -303,21 +304,23 @@ public class Main_Frame extends javax.swing.JFrame {
 //                llp.add("1");
 //                llp.add("2");
 //                llp.add("3");
-//                ps_gantt_chart_tasks.intialize(ll, llp);
-//                ps_gantt_chart_VM.intialize(ll);
-//                ps_gantt_chart_VM.schedule_VM("1", "100");
-//                ps_gantt_chart_VM.schedule_VM("2", "200");
-//                ps_gantt_chart_VM.schedule_VM("3", "300");
-//
-//                ps_gantt_chart_tasks.schedule_tasks("1", "1", "100");
-//                ps_gantt_chart_tasks.schedule_tasks("1", "2", "200");
-//                ps_gantt_chart_tasks.schedule_tasks("1", "3", "300");
-//                ps_gantt_chart_tasks.schedule_tasks("2", "3", "100");
-//                ps_gantt_chart_tasks.schedule_tasks("2", "2", "200");
-//                ps_gantt_chart_tasks.schedule_tasks("2", "1", "300");
-//                ps_gantt_chart_tasks.schedule_tasks("3", "1", "100");
-//                ps_gantt_chart_tasks.schedule_tasks("3", "2", "200");
-//                ps_gantt_chart_tasks.schedule_tasks("3", "3", "300");
+//                frame.ps_gantt_chart_tasks.intialize(ll, llp);
+//                frame.ps_gantt_chart_VM.intialize(ll);
+//                frame.ps_gantt_chart_VM.schedule_VM("1", "100");
+//               frame.ps_gantt_chart_VM.schedule_VM("2", "200");
+//               frame.ps_gantt_chart_VM.schedule_VM("3", "500");
+//               frame.ps_gantt_chart_VM.schedule_VM("1", "700");
+//               frame.ps_gantt_chart_VM.schedule_VM("2", "900");
+//               frame.ps_gantt_chart_VM.schedule_VM("3", "1100");
+//                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "1", "100");
+//                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "2", "300");
+//                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "3", "500");
+//                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "3", "100");
+//                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "2", "300");
+//                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "1", "500");
+//                 frame.ps_gantt_chart_tasks.schedule_tasks("3", "1", "100");
+//                 frame.ps_gantt_chart_tasks.schedule_tasks("3", "2", "300");
+//                frame. ps_gantt_chart_tasks.schedule_tasks("3", "2", "500");
 //
 //                plframe.allocate("1", "FFT", "i", "1");
 //                plframe.allocate("2", "QAM", "b", "2");

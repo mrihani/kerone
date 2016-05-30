@@ -43,6 +43,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
     JFreeChart chart1;
     JFreeChart chart2;
     JFreeChart chart3;
+    int last_task1=-1;
+    int last_task2=-1;
+    int last_task3=-1;
 
     public PS_Gantt_Chart_Tasks() {
 //          IntervalCategoryDataset dataset = createDataset3();
@@ -641,24 +644,44 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         switch (vmid) {
             case 0:
                 this.VM1_current_task_label.setText("Task" + (taskid + 1));
-                  SetRange(vmid,axis1);
+                SetRange(vmid, axis1);
+                if (last_task1 != taskid && last_task1>=0) {
+                    Task lasttask = s1.get(last_task1);
+                    Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
+                    subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
+                            schtime));
+                }
+                last_task1=taskid;
                 break;
             case 1:
                 this.VM2_current_task_label.setText("Task" + (taskid + 1));
-                 SetRange(vmid,axis2);
+                SetRange(vmid, axis2);
+                if (last_task2 != taskid && last_task2>=0) {
+                    Task lasttask = s2.get(last_task2);
+                    Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
+                    subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
+                            schtime));
+                }
+                last_task2=taskid;
                 break;
             case 2:
                 this.VM3_current_task_label.setText("Task" + (taskid + 1));
-                 SetRange(vmid,axis3);
+                SetRange(vmid, axis3);
+                if (last_task3 != taskid && last_task3>=0) {
+                    Task lasttask = s3.get(last_task3);
+                    Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
+                    subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
+                            schtime));
+                }
+                last_task3=taskid;
                 break;
             default:
                 break;
         }
 
-      
     }
 
-    private void SetRange(int vmid,DateAxis axis) {
+    private void SetRange(int vmid, DateAxis axis) {
         long max = 0;
         List tasks = series.get(vmid).getTasks();
         for (int i = 0; i < tasks.size(); i++) {
@@ -671,13 +694,11 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 }
             }
         }
-        
-        if (max<500)
-        {
-           axis.setRange(1,500);
-        }else 
-        {
-          axis.setRange(max-499,max);  
+
+        if (max < 500) {
+            axis.setRange(1, 500);
+        } else {
+            axis.setRange(max - 499, max);
         }
 
     }
