@@ -141,17 +141,18 @@
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="10">
-                <StringItem index="0" value="Run"/>
-                <StringItem index="1" value="Stop"/>
-                <StringItem index="2" value="VM Scheduling Enable"/>
-                <StringItem index="3" value="VM Scheduling Disable"/>
-                <StringItem index="4" value="Task Scheduling Enable"/>
-                <StringItem index="5" value="Task Scheduling Disable"/>
-                <StringItem index="6" value="PL Allocation Enable"/>
-                <StringItem index="7" value="PL Allocation Disable"/>
-                <StringItem index="8" value="Slow mode Enable"/>
-                <StringItem index="9" value="Slow mode Disable"/>
+              <StringArray count="11">
+                <StringItem index="0" value="Intialize"/>
+                <StringItem index="1" value="Run"/>
+                <StringItem index="2" value="Stop"/>
+                <StringItem index="3" value="VM Scheduling Enable"/>
+                <StringItem index="4" value="VM Scheduling Disable"/>
+                <StringItem index="5" value="Task Scheduling Enable"/>
+                <StringItem index="6" value="Task Scheduling Disable"/>
+                <StringItem index="7" value="PL Allocation Enable"/>
+                <StringItem index="8" value="PL Allocation Disable"/>
+                <StringItem index="9" value="Slow mode Enable"/>
+                <StringItem index="10" value="Slow mode Disable"/>
               </StringArray>
             </Property>
           </Properties>

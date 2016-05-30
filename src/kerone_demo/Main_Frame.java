@@ -71,7 +71,7 @@ public class Main_Frame extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Run", "Stop", "VM Scheduling Enable", "VM Scheduling Disable", "Task Scheduling Enable", "Task Scheduling Disable", "PL Allocation Enable", "PL Allocation Disable", "Slow mode Enable", "Slow mode Disable" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Intialize", "Run", "Stop", "VM Scheduling Enable", "VM Scheduling Disable", "Task Scheduling Enable", "Task Scheduling Disable", "PL Allocation Enable", "PL Allocation Disable", "Slow mode Enable", "Slow mode Disable" }));
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -160,42 +160,46 @@ public class Main_Frame extends javax.swing.JFrame {
         int selectedindex = jComboBox1.getSelectedIndex();
         switch (selectedindex) {
             case 0:
+                sender.Intialize();
+                jTextArea1.append("Intialize Command Sent\n");
+                break;
+            case 1:
                 sender.RunStop(0);
                 jTextArea1.append("Run Command Sent\n");
                 break;
-            case 1:
+            case 2:
                 sender.RunStop(1);
                 jTextArea1.append("Stop Command Sent\n");
                 break;
-            case 2:
+            case 3:
                 sender.SendCommand("VM_SCH_EN");
                 jTextArea1.append("VM Schedule Enable Command Sent\n");
                 break;
-            case 3:
+            case 4:
                 sender.SendCommand("VM_SCH_DIS");
                 jTextArea1.append("VM Schedule Disable Command Sent\n");
                 break;
-            case 4:
+            case 5:
                 sender.SendCommand("TA_SCH_EN");
                 jTextArea1.append("Task Schedule Enable Command Sent\n");
                 break;
-            case 5:
+            case 6:
                 sender.SendCommand("TA_SCH_DIS");
                 jTextArea1.append("Task Schedule Disable Command Sent\n");
                 break;
-            case 6:
+            case 7:
                 sender.SendCommand("PL_ALL_EN");
                 jTextArea1.append("PL Allocate Enable Command Sent\n");
                 break;
-            case 7:
+            case 8:
                 sender.SendCommand("PL_ALL_DIS");
                 jTextArea1.append("PL Allocate Disable Command Sent\n");
                 break;
-            case 8:
+            case 9:
                 sender.SendCommand("SLOW_EN");
                 jTextArea1.append("Slow Mode Enable Command Sent\n");
                 break;
-            case 9:
+            case 10:
                 sender.SendCommand("SLOW_DIS");
                 jTextArea1.append("Slow Mode Disble Command Sent\n");
                 break;
@@ -218,6 +222,7 @@ public class Main_Frame extends javax.swing.JFrame {
                 connect_status = 1;
                 Receiver rc = new Receiver(sc, ps_gantt_chart_tasks, ps_gantt_chart_VM, plframe);
                 rc.start();
+                sender = new Sender(sc);
             }
         } else {
             jTextArea1.append("Diconnected on " + jComboBox2.getSelectedItem() + " \n");

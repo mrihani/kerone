@@ -15,6 +15,10 @@ public class Sender {
        this.sc=sc;
     }
 
+     public void Intialize() {
+         sc.send( "CMD i END\n");
+    }
+     
     public void RunStop(int runstop) {
         if (runstop == 0) {
             sc.send( "CMD r END\n");
