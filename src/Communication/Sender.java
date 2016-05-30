@@ -15,7 +15,7 @@ public class Sender {
        this.sc=sc;
     }
 
-     public void Intialize() {
+     public void Intialize() { 
          sc.send( "CMD i END\n");
     }
      
