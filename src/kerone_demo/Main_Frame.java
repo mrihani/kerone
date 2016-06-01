@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class Main_Frame extends javax.swing.JFrame {
 
-    Sender sender;
+    static Sender sender;
     SerialCommunicator sc;
     public static int connect_status;
     PL_Frame plframe;
@@ -297,26 +297,26 @@ public class Main_Frame extends javax.swing.JFrame {
 
                 frame.getComPorts();
                 
-                Run_Stop_Frame rsf = new Run_Stop_Frame(frame.sender);
+                Run_Stop_Frame rsf = new Run_Stop_Frame();
                 rsf.setVisible(true);
-                LinkedList<String> ll = new LinkedList<String>();
-                ll.add("RTOS");
-                ll.add("GPOS");
-                ll.add("Service");
-                 ll.add("Service2");
-                LinkedList<String> llp = new LinkedList<String>();
-                llp.add("1");
-                llp.add("2");
-                llp.add("3");
-                llp.add("4");
-                frame.ps_gantt_chart_tasks.intialize(ll, llp);
-                frame.ps_gantt_chart_VM.intialize(ll);
-                frame.ps_gantt_chart_VM.schedule_VM("1", "100");
-               frame.ps_gantt_chart_VM.schedule_VM("2", "200");
-               frame.ps_gantt_chart_VM.schedule_VM("3", "500");
-               frame.ps_gantt_chart_VM.schedule_VM("4", "700");
-               frame.ps_gantt_chart_VM.schedule_VM("2", "900");
-               frame.ps_gantt_chart_VM.schedule_VM("3", "1100");
+//                LinkedList<String> ll = new LinkedList<String>();
+//                ll.add("RTOS");
+//                ll.add("GPOS");
+//                ll.add("Service");
+//                 ll.add("Service2");
+//                LinkedList<String> llp = new LinkedList<String>();
+//                llp.add("1");
+//                llp.add("2");
+//                llp.add("3");
+//                llp.add("4");
+//                frame.ps_gantt_chart_tasks.intialize(ll, llp);
+//                frame.ps_gantt_chart_VM.intialize(ll);
+//                frame.ps_gantt_chart_VM.schedule_VM("1", "100");
+//               frame.ps_gantt_chart_VM.schedule_VM("2", "200");
+//               frame.ps_gantt_chart_VM.schedule_VM("3", "500");
+//               frame.ps_gantt_chart_VM.schedule_VM("4", "700");
+//               frame.ps_gantt_chart_VM.schedule_VM("2", "900");
+//               frame.ps_gantt_chart_VM.schedule_VM("3", "1100");
 //                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "1", "100");
 //                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "2", "300");
 //                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "3", "500");

@@ -5,11 +5,6 @@
  */
 package kerone_demo;
 
-import Communication.Sender;
-import java.awt.HeadlessException;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -20,13 +15,7 @@ public class Run_Stop_Frame extends javax.swing.JFrame {
     /**
      * Creates new form Run_Stop_Frame
      */
-    Sender sr;
-
-    public Run_Stop_Frame(Sender sr) {
-        this.sr = sr;
-         initComponents();
-       
-    }
+   
     
     public Run_Stop_Frame() {
         initComponents();
@@ -114,13 +103,13 @@ public class Run_Stop_Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      if (sr!=null)
-        sr.RunStop(0);
+      if (Main_Frame.sender!=null)
+        Main_Frame.sender.RunStop(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         if (sr!=null)
-        sr.RunStop(1);
+         if (Main_Frame.sender!=null)
+        Main_Frame.sender.RunStop(1);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
