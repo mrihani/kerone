@@ -9,6 +9,6 @@ In the GUI, users can choose different debug mode, select specific steps that th
 Accorfing to the discussion, the demo envrionment is:
   Development with Java.
   Communication with ZedBoard via UART interface.
-  Refresh the graphic dmonstration at run time.
+  Refresh the graphic demonstration at run time.
 
 In the first step, we can imagine a simple version which can be easier to implement. Meanwhile we can leave adaptiable interfaces where we can later add the optional functions.
