@@ -639,7 +639,7 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
 
         Task temp = series.get(vmid).get(taskid);
         Task subtask = new Task("Task" + (taskid + 1), new SimpleTimePeriod(schtime,
-                schtime + 100));
+                schtime + 3));
         temp.addSubtask(subtask);
         switch (vmid) {
             case 0:

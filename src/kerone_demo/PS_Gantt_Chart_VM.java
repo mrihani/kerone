@@ -346,7 +346,7 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
        }
        Task temp = s1.get(vmid);
        Task subtask = new Task("VM"+(vmid+1),   new SimpleTimePeriod(schtime,
-                        schtime+100));
+                        schtime+3));
        temp.addSubtask(subtask);
        VM_Current_Label.setText("VM"+(vmid+1));
        last_VM=vmid;
