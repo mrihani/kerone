@@ -51,7 +51,7 @@ public class Receiver extends Thread {
                         int VM_count = Integer.parseInt(s[1]);
                         LinkedList<String> VM_TYPE_LL = new LinkedList<String>();
                         LinkedList<String> VM_PRIO_LL = new LinkedList<String>();
-                        for (int i = 2; i < (VM_count * 2); i++) {
+                        for (int i = 2; i < (2+(VM_count * 2)); i++) {
                             if ((i % 2) == 0) {
                                 String type = s[i];
                                 String vm = "";
