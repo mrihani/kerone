@@ -299,44 +299,44 @@ public class Main_Frame extends javax.swing.JFrame {
                 
                 Run_Stop_Frame rsf = new Run_Stop_Frame();
                 rsf.setVisible(true);
-//                LinkedList<String> ll = new LinkedList<String>();
-//                ll.add("RTOS");
-//                ll.add("GPOS");
-//                ll.add("Service");
-//                 ll.add("Service2");
-//                LinkedList<String> llp = new LinkedList<String>();
-//                llp.add("1");
-//                llp.add("2");
-//                llp.add("3");
-//                llp.add("4");
-//                frame.ps_gantt_chart_tasks.intialize(ll, llp);
-//                frame.ps_gantt_chart_VM.intialize(ll);
-//                frame.ps_gantt_chart_VM.schedule_VM("1", "100");
-//               frame.ps_gantt_chart_VM.schedule_VM("2", "200");
-//               frame.ps_gantt_chart_VM.schedule_VM("3", "500");
-//               frame.ps_gantt_chart_VM.schedule_VM("4", "700");
-//               frame.ps_gantt_chart_VM.schedule_VM("2", "900");
-//               frame.ps_gantt_chart_VM.schedule_VM("3", "1100");
-//                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "1", "100");
-//                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "2", "300");
-//                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "3", "500");
-//                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "3", "100");
-//                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "2", "300");
-//                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "1", "500");
-//                 frame.ps_gantt_chart_tasks.schedule_tasks("3", "1", "100");
-//                 frame.ps_gantt_chart_tasks.schedule_tasks("3", "2", "300");
-//                frame. ps_gantt_chart_tasks.schedule_tasks("3", "2", "500");
+                LinkedList<String> ll = new LinkedList<String>();
+                ll.add("RTOS");
+                ll.add("GPOS");
+                ll.add("Service");
+                 ll.add("Service2");
+                LinkedList<String> llp = new LinkedList<String>();
+                llp.add("1");
+                llp.add("2");
+                llp.add("3");
+                llp.add("4");
+                frame.ps_gantt_chart_tasks.intialize(ll, llp);
+                frame.ps_gantt_chart_VM.intialize(ll);
+                frame.ps_gantt_chart_VM.schedule_VM("1", "100");
+               frame.ps_gantt_chart_VM.schedule_VM("2", "200");
+               frame.ps_gantt_chart_VM.schedule_VM("3", "500");
+               frame.ps_gantt_chart_VM.schedule_VM("4", "700");
+               frame.ps_gantt_chart_VM.schedule_VM("2", "900");
+               frame.ps_gantt_chart_VM.schedule_VM("3", "1100");
+                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "1", "100");
+                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "2", "300");
+                 frame.ps_gantt_chart_tasks.schedule_tasks("1", "3", "500");
+                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "3", "100");
+                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "2", "300");
+                 frame.ps_gantt_chart_tasks.schedule_tasks("2", "1", "500");
+                 frame.ps_gantt_chart_tasks.schedule_tasks("3", "1", "100");
+                 frame.ps_gantt_chart_tasks.schedule_tasks("3", "2", "300");
+                frame. ps_gantt_chart_tasks.schedule_tasks("3", "3", "500");
+
+                  frame.plframe.allocate("1", "FFT", "i", "1");
+                  frame.plframe.allocate("2", "QAM", "b", "2");
+                  frame.plframe.allocate("3", "ENC1", "p", "3");
+                  frame.plframe.add_message("Message 1 ");
 //
-//                  frame.plframe.allocate("1", "FFT", "i", "1");
-//                  frame.plframe.allocate("2", "QAM", "b", "2");
-//                  frame.plframe.allocate("3", "ENC1", "p", "3");
-//                  frame.plframe.add_message("Message 1 ");
-////
-////                try {
-////                    Thread.sleep(5000);
-////                } catch (InterruptedException ex) {
-////                    Logger.getLogger(Main_Frame.class.getName()).log(Level.SEVERE, null, ex);
-////                }
+//                try {
+//                    Thread.sleep(5000);
+//                } catch (InterruptedException ex) {
+//                    Logger.getLogger(Main_Frame.class.getName()).log(Level.SEVERE, null, ex);
+//                }
 //                ps_gantt_chart_VM.schedule_VM("1", "400");
 //                ps_gantt_chart_VM.schedule_VM("2", "500");
 //                ps_gantt_chart_VM.schedule_VM("3", "600");
