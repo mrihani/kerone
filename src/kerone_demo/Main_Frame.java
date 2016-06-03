@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 public class Main_Frame extends javax.swing.JFrame {
 
     static Sender sender;
+    static int debug=0;
     SerialCommunicator sc;
     public static int connect_status;
     PL_Frame plframe;
@@ -299,6 +300,8 @@ public class Main_Frame extends javax.swing.JFrame {
                 
                 Run_Stop_Frame rsf = new Run_Stop_Frame();
                 rsf.setVisible(true);
+                if (debug==1)
+                {
                 LinkedList<String> ll = new LinkedList<String>();
                 ll.add("RTOS");
                 ll.add("GPOS");
@@ -331,6 +334,7 @@ public class Main_Frame extends javax.swing.JFrame {
                   frame.plframe.allocate("2", "QAM", "b", "2");
                   frame.plframe.allocate("3", "ENC1", "p", "3");
                   frame.plframe.add_message("Message 1 ");
+            }
 //
 //                try {
 //                    Thread.sleep(5000);
