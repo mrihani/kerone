@@ -327,11 +327,11 @@ public class Main_Frame extends javax.swing.JFrame {
 //                 frame.ps_gantt_chart_tasks.schedule_tasks("3", "2", "300");
 //                frame. ps_gantt_chart_tasks.schedule_tasks("3", "2", "500");
 //
-//                plframe.allocate("1", "FFT", "i", "1");
-//                plframe.allocate("2", "QAM", "b", "2");
-//                plframe.allocate("3", "ENC1", "p", "3");
-//                plframe.add_message("Message 1 ");
-//
+//                  frame.plframe.allocate("1", "FFT", "i", "1");
+//                  frame.plframe.allocate("2", "QAM", "b", "2");
+//                  frame.plframe.allocate("3", "ENC1", "p", "3");
+//                  frame.plframe.add_message("Message 1 ");
+////
 ////                try {
 ////                    Thread.sleep(5000);
 ////                } catch (InterruptedException ex) {
