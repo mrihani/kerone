@@ -5,6 +5,8 @@
  */
 package kerone_demo;
 
+import java.awt.Color;
+import java.awt.Paint;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,9 +45,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
     JFreeChart chart1;
     JFreeChart chart2;
     JFreeChart chart3;
-    int last_task1=-1;
-    int last_task2=-1;
-    int last_task3=-1;
+    int last_task1 = -1;
+    int last_task2 = -1;
+    int last_task3 = -1;
 
     public PS_Gantt_Chart_Tasks() {
 //          IntervalCategoryDataset dataset = createDataset3();
@@ -56,7 +58,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
 //     
 
         initComponents();
-
+        chart1.getCategoryPlot().getRenderer().setSeriesPaint(0, Color.red);
+        chart2.getCategoryPlot().getRenderer().setSeriesPaint(0, Color.BLUE);
+        chart3.getCategoryPlot().getRenderer().setSeriesPaint(0, Color.GREEN);
     }
 
     /**
@@ -431,6 +435,9 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
         } else if (evt.getWheelRotation() == -1) {
             axis3.setRange(axis3.getRange().getLowerBound() + 50, axis3.getRange().getUpperBound() - 50);
         }
+//        System.err.println("Hi"
+//                + "");
+//      
     }//GEN-LAST:event_jPanel3MouseWheelMoved
 
     private void jPanel2MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_jPanel2MouseWheelMoved
@@ -645,35 +652,35 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
             case 0:
                 this.VM1_current_task_label.setText("Task" + (taskid + 1));
                 SetRange(vmid, axis1);
-                if (last_task1 != taskid && last_task1>=0) {
+                if (last_task1 != taskid && last_task1 >= 0) {
                     Task lasttask = s1.get(last_task1);
                     Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
                 }
-                last_task1=taskid;
+                last_task1 = taskid;
                 break;
             case 1:
                 this.VM2_current_task_label.setText("Task" + (taskid + 1));
                 SetRange(vmid, axis2);
-                if (last_task2 != taskid && last_task2>=0) {
+                if (last_task2 != taskid && last_task2 >= 0) {
                     Task lasttask = s2.get(last_task2);
                     Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
                 }
-                last_task2=taskid;
+                last_task2 = taskid;
                 break;
             case 2:
                 this.VM3_current_task_label.setText("Task" + (taskid + 1));
                 SetRange(vmid, axis3);
-                if (last_task3 != taskid && last_task3>=0) {
+                if (last_task3 != taskid && last_task3 >= 0) {
                     Task lasttask = s3.get(last_task3);
                     Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
                 }
-                last_task3=taskid;
+                last_task3 = taskid;
                 break;
             default:
                 break;

@@ -43,7 +43,8 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
 //         ChartPanel chartPanel = new ChartPanel(chart);
 //     
         initComponents();
-        
+        myRenderer mr = new myRenderer();
+        chart.getCategoryPlot().setRenderer(mr);
     }
 
     /**
