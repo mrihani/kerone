@@ -91,6 +91,13 @@ public class Receiver extends Thread {
                                     Schedule_Task(vm_id,task_id, sch_time);
                                     break;
                                 }
+                                 case "ts":
+                                {
+                                    String vm_id = s[2];
+                                   // String task_id = s[3];
+                                    Stop_Task(vm_id);
+                                    break;
+                                }
                             case "pl":
                                 {
                                     String pr_id = s[2];
@@ -140,6 +147,11 @@ public class Receiver extends Thread {
     private void PL_message(String message) {
       Main_Frame.jTextArea1.append("PL INfO Message Received \n");
       plframe.add_message(message);
+    }
+
+    private void Stop_Task(String vm_id) {
+       Main_Frame.jTextArea1.append("Stop Task command Recieved \n");
+         psgct.stop_tasks(vm_id);
     }
 
 }

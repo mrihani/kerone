@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 public class Main_Frame extends javax.swing.JFrame {
 
     static Sender sender;
-    static int debug=0;
+    static int debug=1;
     SerialCommunicator sc;
     public static int connect_status;
     PL_Frame plframe;
