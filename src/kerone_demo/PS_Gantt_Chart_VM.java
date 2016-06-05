@@ -338,19 +338,19 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
     public void schedule_VM(String vm_id, String sch_time) {
        int vmid = Integer.parseInt(vm_id) -1;
        int schtime =  Integer.parseInt(sch_time);
-//       if (last_VM!=vmid && last_VM>=0)
-//       {
-//       Task lasttask = s1.get(last_VM);
-//       Task subtask = lasttask.getSubtask(lasttask.getSubtaskCount()-1);
-//       subtask.setDuration( new SimpleTimePeriod(subtask.getDuration().getStart().getTime(),
-//                        schtime));
-//       }
+       if (last_VM!=vmid && last_VM>=0)
+       {
+       Task lasttask = s1.get(last_VM);
+       Task subtask = lasttask.getSubtask(lasttask.getSubtaskCount()-1);
+       subtask.setDuration( new SimpleTimePeriod(subtask.getDuration().getStart().getTime(),
+                        schtime));
+       }
        Task temp = s1.get(vmid);
        Task subtask = new Task("VM"+(vmid+1),   new SimpleTimePeriod(schtime,
                         schtime+3));
        temp.addSubtask(subtask);
        VM_Current_Label.setText("VM"+(vmid+1));
-     //  last_VM=vmid;
+       last_VM=vmid;
        SetRange();
     }
     
