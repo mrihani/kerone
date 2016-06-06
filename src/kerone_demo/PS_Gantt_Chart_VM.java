@@ -22,6 +22,7 @@ import org.jfree.data.gantt.TaskSeries;
 import org.jfree.data.gantt.TaskSeriesCollection;
 import org.jfree.data.time.SimpleTimePeriod;
 
+
 /**
  *
  * @author Fadel
@@ -32,6 +33,8 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
     DateAxis axis;
     JFreeChart chart;
      int last_VM=-1;
+     
+     PS_Gantt_Chart_Tasks psgct;
     /**
      * Creates new form Test_Frame
      */
@@ -45,6 +48,10 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
         initComponents();
         myRenderer mr = new myRenderer();
         chart.getCategoryPlot().setRenderer(mr);
+    }
+    
+    public void PS_Gantt_Chart_VM_Set_psgct(PS_Gantt_Chart_Tasks psgct){
+        this.psgct = psgct;
     }
 
     /**
@@ -344,7 +351,9 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
        Task subtask = lasttask.getSubtask(lasttask.getSubtaskCount()-1);
        subtask.setDuration( new SimpleTimePeriod(subtask.getDuration().getStart().getTime(),
                         schtime));
+       psgct.stop_tasks(Integer.toString(last_VM+1), sch_time);
        }
+       psgct.resume_tasks(vm_id, sch_time);
        Task temp = s1.get(vmid);
        Task subtask = new Task("VM"+(vmid+1),   new SimpleTimePeriod(schtime,
                         schtime+3));

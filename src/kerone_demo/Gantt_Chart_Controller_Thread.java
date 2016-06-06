@@ -57,7 +57,7 @@ public class Gantt_Chart_Controller_Thread extends Thread {
                 psgct.SetRange(3);
             }
             try {
-                sleep(10);
+                sleep(1);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Gantt_Chart_Controller_Thread.class.getName()).log(Level.SEVERE, null, ex);
             }

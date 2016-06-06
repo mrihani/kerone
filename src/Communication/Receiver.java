@@ -94,8 +94,8 @@ public class Receiver extends Thread {
                                  case "ts":
                                 {
                                     String vm_id = s[2];
-                                   // String task_id = s[3];
-                                    Stop_Task(vm_id);
+                                    String sch_time = s[3];
+                                    Stop_Task(vm_id, sch_time);
                                     break;
                                 }
                             case "pl":
@@ -149,9 +149,9 @@ public class Receiver extends Thread {
       plframe.add_message(message);
     }
 
-    private void Stop_Task(String vm_id) {
+    private void Stop_Task(String vm_id, String sch_time) {
        Main_Frame.jTextArea1.append("Stop Task command Recieved \n");
-         psgct.stop_tasks(vm_id);
+         psgct.stop_tasks(vm_id, sch_time);
     }
 
 }

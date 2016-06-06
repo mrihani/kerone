@@ -290,16 +290,18 @@ public class Main_Frame extends javax.swing.JFrame {
 
                 frame.plframe.setVisible(true);
                 frame.ps_gantt_chart_VM = new PS_Gantt_Chart_VM();
-
                 frame.ps_gantt_chart_VM.setVisible(true);
+               
                 frame.ps_gantt_chart_tasks = new PS_Gantt_Chart_Tasks();
-
                 frame.ps_gantt_chart_tasks.setVisible(true);
+                
+                frame.ps_gantt_chart_VM.PS_Gantt_Chart_VM_Set_psgct(frame.ps_gantt_chart_tasks);
 
                 frame.getComPorts();
                 
                 Run_Stop_Frame rsf = new Run_Stop_Frame();
                 rsf.setVisible(true);
+                
                 if (debug==1)
                 {
                 LinkedList<String> ll = new LinkedList<String>();
