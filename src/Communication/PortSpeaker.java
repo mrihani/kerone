@@ -30,7 +30,7 @@ public class PortSpeaker extends Thread {
 			if (data != null) {
 				try {
 					outStream.write(data);
-					outStream.flush();
+					//outStream.flush();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
