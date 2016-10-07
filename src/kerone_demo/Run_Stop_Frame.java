@@ -5,6 +5,9 @@
  */
 package kerone_demo;
 
+import Communication.Receiver;
+import java.awt.Point;
+import static kerone_demo.Main_Frame.frame;
 
 /**
  *
@@ -15,8 +18,6 @@ public class Run_Stop_Frame extends javax.swing.JFrame {
     /**
      * Creates new form Run_Stop_Frame
      */
-   
-    
     public Run_Stop_Frame() {
         initComponents();
     }
@@ -34,6 +35,7 @@ public class Run_Stop_Frame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Run_Stop");
@@ -61,12 +63,20 @@ public class Run_Stop_Frame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Control :");
 
+        jButton3.setBackground(new java.awt.Color(0, 0, 204));
+        jButton3.setText("Refresh charts");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
@@ -74,14 +84,18 @@ public class Run_Stop_Frame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addGap(12, 12, 12)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,23 +117,45 @@ public class Run_Stop_Frame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      if (Main_Frame.sender!=null)
-        Main_Frame.sender.RunStop(0);
+        if (Main_Frame.sender != null) {
+            Main_Frame.sender.RunStop(0);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         if (Main_Frame.sender!=null)
-        Main_Frame.sender.RunStop(1);
+        if (Main_Frame.sender != null) {
+            Main_Frame.sender.RunStop(1);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         Point location = Main_Frame.frame.ps_gantt_chart_tasks.getLocation();
+          Point locationvm = Main_Frame.frame.ps_gantt_chart_VM.getLocation();
+        Main_Frame.frame.ps_gantt_chart_VM.dispose();
+        Main_Frame.frame.ps_gantt_chart_tasks.dispose();
+        Main_Frame.frame.ps_gantt_chart_VM = new PS_Gantt_Chart_VM();
+         Main_Frame.frame.ps_gantt_chart_VM.setLocation(locationvm);
+         
+        Main_Frame.frame.ps_gantt_chart_VM.setVisible(true);
+       
+        Main_Frame.frame.ps_gantt_chart_tasks = new PS_Gantt_Chart_Tasks();
+           Main_Frame.frame.ps_gantt_chart_tasks.setLocation(location);
+        Main_Frame.frame.ps_gantt_chart_tasks.setVisible(true);
+
+        Main_Frame.frame.ps_gantt_chart_VM.PS_Gantt_Chart_VM_Set_psgct(frame.ps_gantt_chart_tasks);
+        Main_Frame.rc.rcsettasks( Main_Frame.frame.ps_gantt_chart_tasks);
+        Main_Frame.rc.rcsetvms( Main_Frame.frame.ps_gantt_chart_VM);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -645,26 +645,28 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
     }
 
     public void schedule_tasks(String vm_id, String task_id, String sch_time) {
-
-//        System.err.println(counter++);
-//        if (counter == 1000) {
-//            counter = 0;
-//            IntervalCategoryDataset dataset3 = createDataset3();
-//            chart3 = createChart(dataset3);
-//            IntervalCategoryDataset dataset2 = createDataset2();
-//            chart2 = createChart(dataset2);
-//            IntervalCategoryDataset dataset1 = createDataset1();
-//            chart1 = createChart(dataset1);
+      int vmid = Integer.parseInt(vm_id) - 1;
+        int taskid = Integer.parseInt(task_id) - 1;
+        int schtime = Integer.parseInt(sch_time);
+      
+//      counter++;
+//        if (counter == 500) {
+//             IntervalCategoryDataset dataset1 = createDataset1();
+//             chart1 = createChart(dataset1);
+//             IntervalCategoryDataset dataset2 = createDataset2();
+//             chart2 = createChart(dataset2);
+//               IntervalCategoryDataset dataset3 = createDataset3();
+//             chart3 = createChart(dataset3);
 //            last_task1 = -1;
 //            last_task2 = -1;
 //            last_task3 = -1;
+//            
+//             counter = 0;
 //        }
 
-        int vmid = Integer.parseInt(vm_id) - 1;
-        int taskid = Integer.parseInt(task_id) - 1;
-        int schtime = Integer.parseInt(sch_time);
-
+      
         Task temp = series.get(vmid).get(taskid);
+        //System.err.println(temp.getSubtaskCount());
         Task subtask = new Task("Task" + (taskid + 1), new SimpleTimePeriod(schtime,
                 schtime + 3));
         temp.addSubtask(subtask);
@@ -674,40 +676,51 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 SetRange(vmid, axis1);
                 if (last_task1 != taskid && last_task1 >= 0) {
                     Task lasttask = s1.get(last_task1);
-
-                    Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
+                        if (lasttask.getSubtaskCount()!=0)
+                        { Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
+                        }
                 }
 ///                gcct.subtask1 = subtask;
 ///                gcct.flag1 = 1;
                 last_task1 = taskid;
+                
                 break;
             case 1:
                 this.VM2_current_task_label.setText("Task" + (taskid + 1));
                 SetRange(vmid, axis2);
                 if (last_task2 != taskid && last_task2 >= 0) {
                     Task lasttask = s2.get(last_task2);
+                   if (lasttask.getSubtaskCount()!=0)
+                    {
                     Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
+                    }
                 }
 ///                gcct.subtask2 = subtask;
 ///                gcct.flag2 = 1;
                 last_task2 = taskid;
+               
                 break;
             case 2:
                 this.VM3_current_task_label.setText("Task" + (taskid + 1));
                 SetRange(vmid, axis3);
                 if (last_task3 != taskid && last_task3 >= 0) {
                     Task lasttask = s3.get(last_task3);
+                    if (lasttask.getSubtaskCount()!=0)
+                    {
                     Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
+                    
+                    }
                 }
 ///                gcct.subtask3 = subtask;
 ///                gcct.flag3 = 1;
                 last_task3 = taskid;
+                 
                 break;
             default:
                 break;
@@ -747,27 +760,34 @@ public class PS_Gantt_Chart_Tasks extends javax.swing.JFrame {
                 ///gcct.flag1 = 0;
                 if (last_task1 >= 0) {
                     Task lasttask = s1.get(last_task1);
-                    Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
+                    if (lasttask.getSubtaskCount()!=0)
+                    { Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
+                    }
                 }
                 break;
 
             case 1:
                 if (last_task2 >= 0) {
                     Task lasttask = s2.get(last_task2);
-                    Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
+                    if (lasttask.getSubtaskCount()!=0)
+                    { Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
+                    }
                 }
                 ///gcct.flag2 = 0;
                 break;
             case 2:
                 if (last_task3 >= 0) {
                     Task lasttask = s3.get(last_task3);
+                    if (lasttask.getSubtaskCount()!=0)
+                    {
                     Task subtasky = lasttask.getSubtask(lasttask.getSubtaskCount() - 1);
                     subtasky.setDuration(new SimpleTimePeriod(subtasky.getDuration().getStart().getTime(),
                             schtime));
+                    }
                 }
 
                 ///gcct.flag3 = 0;

@@ -156,4 +156,12 @@ public class Receiver extends Thread {
          psgct.stop_tasks(vm_id, sch_time);
     }
 
+    public void rcsettasks(PS_Gantt_Chart_Tasks ps_gantt_chart_tasks) {
+      psgct=ps_gantt_chart_tasks;
+    }
+
+    public void rcsetvms(PS_Gantt_Chart_VM ps_gantt_chart_VM) {
+        psgcvm=ps_gantt_chart_VM;
+    }
+
 }

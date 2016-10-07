@@ -92,7 +92,6 @@ public class PL_Frame extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Reconfigurable Region State");
 
         jPanel3.setBackground(java.awt.SystemColor.controlLtHighlight);

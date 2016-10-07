@@ -23,12 +23,15 @@ public class Main_Frame extends javax.swing.JFrame {
 
     static Sender sender;
     static int debug=0;
+
+  
     SerialCommunicator sc;
     public static int connect_status;
     PL_Frame plframe;
     PS_Gantt_Chart_VM ps_gantt_chart_VM;
     PS_Gantt_Chart_Tasks ps_gantt_chart_tasks;
-
+    static Main_Frame frame;
+    static Receiver rc;
     /**
      * Creates new form Main_Frame
      */
@@ -222,7 +225,7 @@ public class Main_Frame extends javax.swing.JFrame {
                 jTextArea1.append("Connected on " + jComboBox2.getSelectedItem() + " \n");
                 jButton2.setText("Disconnect");
                 connect_status = 1;
-                Receiver rc = new Receiver(sc, ps_gantt_chart_tasks, ps_gantt_chart_VM, plframe);
+                rc = new Receiver(sc, ps_gantt_chart_tasks, ps_gantt_chart_VM, plframe);
                 rc.start();
                 sender = new Sender(sc);
             }
@@ -280,7 +283,7 @@ public class Main_Frame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Main_Frame frame = new Main_Frame();
+                frame = new Main_Frame();
                 Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
                 int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
                 int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);

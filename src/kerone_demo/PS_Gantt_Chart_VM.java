@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import static kerone_demo.PS_Gantt_Chart_Tasks.createChart;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -35,6 +36,7 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
      int last_VM=-1;
      
      PS_Gantt_Chart_Tasks psgct;
+    private int counter=0;
     /**
      * Creates new form Test_Frame
      */
@@ -345,6 +347,14 @@ public class PS_Gantt_Chart_VM extends javax.swing.JFrame {
     public void schedule_VM(String vm_id, String sch_time) {
        int vmid = Integer.parseInt(vm_id) -1;
        int schtime =  Integer.parseInt(sch_time);
+//     counter++;
+//        if (counter == 500) {
+//           
+//            IntervalCategoryDataset dataset1 = createDataset3();
+//             chart = createChart(dataset1);
+//             counter = 0;
+//             last_VM=-1;
+//        }
        if (last_VM!=vmid && last_VM>=0)
        {
        Task lasttask = s1.get(last_VM);
