@@ -132,12 +132,12 @@ public class Receiver extends Thread {
     }
 
     private void Schedule_VM(String vm_id, String sch_time) {
-      //  Main_Frame.jTextArea1.append("Schedule VM command Recieved \n");
+        //Main_Frame.jTextArea1.append("Schedule VM command Recieved \n");
         psgcvm.schedule_VM(vm_id,sch_time);
     }
 
     private void Schedule_Task(String vm_id, String task_id, String sch_time) {
-      //   Main_Frame.jTextArea1.append("Schedule Task command Recieved \n");
+         //Main_Frame.jTextArea1.append("Schedule Task command Recieved \n");
          psgct.schedule_tasks(vm_id,task_id,sch_time);
     }
 
