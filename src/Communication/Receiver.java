@@ -44,7 +44,9 @@ public class Receiver extends Thread {
             if (Main_Frame.connect_status==0)
                 break;
             command = sc.getReply();
+           // System.err.println(command);
             if (command != null) {
+             //   System.err.println(command);
                 String[] s = command.split(" ");
                 if (s.length > 0) {
                     if (s[0].equals("INIT")) {
@@ -124,7 +126,7 @@ public class Receiver extends Thread {
     }
 
     private void intialize_VM( LinkedList<String> VM_TYPE_LL, LinkedList<String> VM_PRIO_LL) {
-        Main_Frame.jTextArea1.append("intialize VM command Recieved \n");
+      //  Main_Frame.jTextArea1.append("intialize VM command Recieved \n");
         psgcvm.intialize(VM_TYPE_LL);
         psgct.intialize (VM_TYPE_LL,VM_PRIO_LL);
     }
@@ -140,17 +142,17 @@ public class Receiver extends Thread {
     }
 
     private void Allocate_PL(String pr_id, String acc, String state, String vm_id) {
-        Main_Frame.jTextArea1.append("Allocate PL command Received \n");
+    //    Main_Frame.jTextArea1.append("Allocate PL command Received \n");
         plframe.allocate(pr_id,acc,state,vm_id);
     }
 
     private void PL_message(String message) {
-      Main_Frame.jTextArea1.append("PL INfO Message Received \n");
+   //   Main_Frame.jTextArea1.append("PL INfO Message Received \n");
       plframe.add_message(message);
     }
 
     private void Stop_Task(String vm_id, String sch_time) {
-       Main_Frame.jTextArea1.append("Stop Task command Recieved \n");
+     //  Main_Frame.jTextArea1.append("Stop Task command Recieved \n");
          psgct.stop_tasks(vm_id, sch_time);
     }
 
