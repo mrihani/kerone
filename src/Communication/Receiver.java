@@ -4,6 +4,7 @@
  */
 package Communication;
 
+import java.awt.Point;
 import java.util.LinkedList;
 import kerone_demo.Main_Frame;
 import kerone_demo.PL_Frame;
@@ -19,7 +20,7 @@ public class Receiver extends Thread {
     PS_Gantt_Chart_Tasks psgct;
     PS_Gantt_Chart_VM psgcvm;
     PL_Frame plframe;
-    
+    int counter=0;
    
     SerialCommunicator sc;
     final String VM_GPOS = "go";
@@ -46,6 +47,12 @@ public class Receiver extends Thread {
             command = sc.getReply();
            // System.err.println(command);
             if (command != null) {
+                counter++;
+                if (counter==500)
+                {
+                    counter=0;
+                    resetdata();
+                }
              //   System.err.println(command);
                 String[] s = command.split(" ");
                 if (s.length > 0) {
@@ -164,4 +171,23 @@ public class Receiver extends Thread {
         psgcvm=ps_gantt_chart_VM;
     }
 
+    public void resetdata()
+    {
+         Point location = Main_Frame.frame.ps_gantt_chart_tasks.getLocation();
+          Point locationvm = Main_Frame.frame.ps_gantt_chart_VM.getLocation();
+        Main_Frame.frame.ps_gantt_chart_VM.dispose();
+        Main_Frame.frame.ps_gantt_chart_tasks.dispose();
+        Main_Frame.frame.ps_gantt_chart_VM = new PS_Gantt_Chart_VM();
+         Main_Frame.frame.ps_gantt_chart_VM.setLocation(locationvm);
+         
+        Main_Frame.frame.ps_gantt_chart_VM.setVisible(true);
+       
+        Main_Frame.frame.ps_gantt_chart_tasks = new PS_Gantt_Chart_Tasks();
+           Main_Frame.frame.ps_gantt_chart_tasks.setLocation(location);
+        Main_Frame.frame.ps_gantt_chart_tasks.setVisible(true);
+
+        Main_Frame.frame.ps_gantt_chart_VM.PS_Gantt_Chart_VM_Set_psgct(Main_Frame.frame.ps_gantt_chart_tasks);
+      rcsettasks( Main_Frame.frame.ps_gantt_chart_tasks);
+      rcsetvms( Main_Frame.frame.ps_gantt_chart_VM);
+    }
 }

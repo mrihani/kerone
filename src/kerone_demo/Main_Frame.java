@@ -28,9 +28,9 @@ public class Main_Frame extends javax.swing.JFrame {
     SerialCommunicator sc;
     public static int connect_status;
     PL_Frame plframe;
-    PS_Gantt_Chart_VM ps_gantt_chart_VM;
-    PS_Gantt_Chart_Tasks ps_gantt_chart_tasks;
-    static Main_Frame frame;
+   public PS_Gantt_Chart_VM ps_gantt_chart_VM;
+  public  PS_Gantt_Chart_Tasks ps_gantt_chart_tasks;
+   public  static Main_Frame frame;
     static Receiver rc;
     /**
      * Creates new form Main_Frame
