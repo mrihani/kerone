@@ -51,7 +51,7 @@ public class Receiver extends Thread {
             // System.err.println(command);
             if (command != null) {
                 counter++;
-                if (counter == 500) {
+                if (counter == 5000) {
                     counter = 0;
                     resetdata();
                 }
