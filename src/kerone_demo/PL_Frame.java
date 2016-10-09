@@ -92,7 +92,6 @@ public class PL_Frame extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        jLabel9 = new javax.swing.JLabel();
 
         setTitle("Reconfigurable Region State");
 
@@ -113,7 +112,9 @@ public class PL_Frame extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel2.setLayout(null);
@@ -124,7 +125,7 @@ public class PL_Frame extends javax.swing.JFrame {
         jLabel40.setText(" PRP 1");
         jLabel40.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel40);
-        jLabel40.setBounds(390, 220, 100, 21);
+        jLabel40.setBounds(410, 220, 80, 21);
 
         jLabel41.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,7 +133,7 @@ public class PL_Frame extends javax.swing.JFrame {
         jLabel41.setText("PRP 3");
         jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel41);
-        jLabel41.setBounds(310, 390, 160, 30);
+        jLabel41.setBounds(300, 390, 170, 30);
 
         PRP3_Block_IP.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         PRP3_Block_IP.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,7 +141,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP3_Block_IP.setText("IP:");
         PRP3_Block_IP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(PRP3_Block_IP);
-        PRP3_Block_IP.setBounds(310, 430, 160, 30);
+        PRP3_Block_IP.setBounds(300, 430, 170, 30);
 
         PRP3_Block_VMID.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         PRP3_Block_VMID.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,7 +149,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP3_Block_VMID.setText("VM ID:");
         PRP3_Block_VMID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(PRP3_Block_VMID);
-        PRP3_Block_VMID.setBounds(310, 460, 160, 30);
+        PRP3_Block_VMID.setBounds(300, 460, 170, 30);
 
         jLabel44.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,7 +157,7 @@ public class PL_Frame extends javax.swing.JFrame {
         jLabel44.setText("PRP 2");
         jLabel44.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel44);
-        jLabel44.setBounds(120, 390, 110, 21);
+        jLabel44.setBounds(110, 390, 120, 21);
 
         PRP2_Block_IP.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         PRP2_Block_IP.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,7 +165,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP2_Block_IP.setText("IP:");
         PRP2_Block_IP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(PRP2_Block_IP);
-        PRP2_Block_IP.setBounds(120, 430, 110, 21);
+        PRP2_Block_IP.setBounds(110, 430, 120, 21);
 
         PRP2_Block_VMID.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         PRP2_Block_VMID.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,7 +173,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP2_Block_VMID.setText("VM ID:");
         PRP2_Block_VMID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(PRP2_Block_VMID);
-        PRP2_Block_VMID.setBounds(120, 460, 110, 21);
+        PRP2_Block_VMID.setBounds(110, 460, 120, 21);
 
         PRP1_Block_IP.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         PRP1_Block_IP.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,7 +181,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP1_Block_IP.setText("IP:");
         PRP1_Block_IP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(PRP1_Block_IP);
-        PRP1_Block_IP.setBounds(390, 250, 100, 21);
+        PRP1_Block_IP.setBounds(410, 250, 80, 21);
 
         PRP1_Block_VMID.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         PRP1_Block_VMID.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,7 +189,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP1_Block_VMID.setText("VM ID:");
         PRP1_Block_VMID.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(PRP1_Block_VMID);
-        PRP1_Block_VMID.setBounds(390, 290, 100, 21);
+        PRP1_Block_VMID.setBounds(410, 290, 80, 21);
 
         PRP2_Device_Block.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         PRP2_Device_Block.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,7 +197,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP2_Device_Block.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         PRP2_Device_Block.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 102, 0), 4, true));
         jPanel2.add(PRP2_Device_Block);
-        PRP2_Device_Block.setBounds(110, 370, 130, 140);
+        PRP2_Device_Block.setBounds(100, 370, 140, 140);
 
         PRP3_Device_Block.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         PRP3_Device_Block.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,7 +206,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP3_Device_Block.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         PRP3_Device_Block.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
         jPanel2.add(PRP3_Device_Block);
-        PRP3_Device_Block.setBounds(300, 370, 180, 140);
+        PRP3_Device_Block.setBounds(290, 370, 190, 140);
 
         PRP1_Device_Block.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         PRP1_Device_Block.setForeground(new java.awt.Color(255, 255, 255));
@@ -213,7 +214,7 @@ public class PL_Frame extends javax.swing.JFrame {
         PRP1_Device_Block.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         PRP1_Device_Block.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 4, true));
         jPanel2.add(PRP1_Device_Block);
-        PRP1_Device_Block.setBounds(380, 200, 120, 140);
+        PRP1_Device_Block.setBounds(400, 200, 100, 140);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Figures/PL.jpg"))); // NOI18N
         jPanel2.add(jLabel2);
@@ -322,10 +323,11 @@ public class PL_Frame extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -584,9 +586,6 @@ public class PL_Frame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel9.setText("Allocation Information :");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -595,13 +594,8 @@ public class PL_Frame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(26, 26, 26))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(26, 26, 26))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -618,8 +612,6 @@ public class PL_Frame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -745,7 +737,6 @@ public class PL_Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
